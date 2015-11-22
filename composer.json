@@ -4,6 +4,10 @@
             "Bloge\\": "src/"
         }
     },
+    "require": {
+        "erusev/parsedown": "^1.5",
+        "mustangostang/spyc": "*"
+    },
     "require-dev": {
         "phpunit/phpunit": "*"
     }

@@ -6,8 +6,6 @@ class BlogeTest extends TestCase
 {
     public function testInitate()
     {
-        $bloge = new App;
-        
-        $this->assertInstanceOf('\Bloge\App', $bloge);
+        $this->assertInstanceOf('\Bloge\App', new App);
     }
 }
