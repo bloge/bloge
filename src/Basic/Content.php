@@ -2,6 +2,8 @@
 
 namespace Bloge\Basic;
 
+use Bloge\FileNotFoundException;
+
 class Content implements \Bloge\Content
 {
     protected $path;
@@ -13,7 +15,9 @@ class Content implements \Bloge\Content
     
     public function has($file)
     {
-        return file_exists($this->path($file));
+        $path = $this->path($file);
+        
+        return file_exists($path) && !is_dir($path);
     }
     
     public function path($path = '') {
@@ -23,7 +27,9 @@ class Content implements \Bloge\Content
     public function fetch($file)
     {
         if (!$this->has($file)) {
-            return [];
+            throw new FileNotFoundException(
+                "Content file '$file' wasn't found in '{$this->path}'"
+            );
         }
         
         ob_start();

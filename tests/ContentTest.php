@@ -2,13 +2,45 @@
 
 use Bloge\Basic\Content;
 
+/**
+ * @todo cleanup data dataProvider
+ */
 class ContentTest extends TestCase
 {
     public function data()
     {
         return [
-            ['index.php', ['title' => 'hello', 'content' => 'Hello!'], true],
-            ['tron.php', [], false]
+            [
+                'index.php', 
+                [
+                    'title' => 'hello', 
+                    'content' => 'Hello!'
+                ], 
+                true
+            ],
+            [
+                'project.php', 
+                [
+                    'title' => 'Much projects',
+                    'content' => '
+Much projects, so awesome:
+
+* Doge food
+* Doge bloge
+* Doge meme
+* Dogescript
+'
+                ],
+                true
+            ]
+        ];
+    }
+    
+    public function failingData()
+    {
+        return [
+            ['foobar.php'],
+            ['tron.php']
         ];
     }
     
@@ -37,6 +69,15 @@ class ContentTest extends TestCase
             $expected, 
             $this->createContent()->fetch($file)
         );
+    }
+    
+    /**
+     * @dataProvider failingData
+     * @expectedException \Bloge\FileNotFoundException
+     */
+    public function testFailingFetch($file)
+    {
+        $this->createContent()->fetch($file);
     }
     
     public function testBrowse()

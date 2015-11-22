@@ -18,11 +18,6 @@ class ArrayContent implements Content
         return isset($this->content[$file]);
     }
     
-    public function path($path = '')
-    {
-        return $path;
-    }
-    
     public function fetch($file)
     {
         return $this->has($file) ? $this->content[$file]

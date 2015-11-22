@@ -14,7 +14,7 @@ class App implements \Bloge\App
     }
     
     public function render($route = '')
-    {
+    {   
         $data = $this->content->fetch($route);
         
         return $this->theme->render('layout.php', $data);

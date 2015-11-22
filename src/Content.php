@@ -12,6 +12,7 @@ interface Content
     
     /**
      * @param string $file
+     * @throws \Bloge\FileNotFoundException
      * @return array
      */
     public function fetch($file);

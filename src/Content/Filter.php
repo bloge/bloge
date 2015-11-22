@@ -7,8 +7,8 @@ use Bloge\Content;
 class Filter implements Content
 {
     protected $content;
-    protected $cached;
     protected $filters;
+    protected $cached = [];
     
     public function __construct(Content $content)
     {
@@ -20,6 +20,13 @@ class Filter implements Content
         $this->filters[] = $filter;
     }
     
+    public function resetCache()
+    {
+        $this->cached = [];
+    }
+    
+    /** Interface implementations */
+    
     public function has($file)
     {
         if (empty($this->cached)) {
@@ -27,11 +34,6 @@ class Filter implements Content
         }
         
         return isset($this->cached[$file]);
-    }
-    
-    public function path($path = '')
-    {
-        return $this->content->path();
     }
     
     public function fetch($file)
