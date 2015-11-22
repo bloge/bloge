@@ -32,7 +32,7 @@ class Theme implements ITheme
         
         ob_start();
         
-        \Bloge\render($view, $data);
+        \Bloge\render($this->path($view), $data);
         
         return ob_get_clean();
     }

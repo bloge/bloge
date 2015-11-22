@@ -27,6 +27,9 @@ class AppTest extends TestCase
         $directory = BUILD_DIR;
         
         $this->createApp()->build($directory);
-        $this->assertTrue(count(scandir($directory)) > 2);
+        $this->assertTrue(
+            count(scandir($directory)) > 2, 
+            'App could not build website!'
+        );
     }
 }
