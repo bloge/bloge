@@ -3,23 +3,31 @@
 namespace Bloge;
 
 /**
+ * @param string $directory
  * @param string $basepath
  * @return array
  */
-function listFiles($basepath) {
+function listFiles($directory, $basepath = '') {
     $iterator = new \RecursiveIteratorIterator(
-        new \RecursiveDirectoryIterator($basepath), 
+        new \RecursiveDirectoryIterator($directory), 
         \RecursiveIteratorIterator::SELF_FIRST
     );
-
-    return array_values(
-        array_filter(
-            array_map('strval', iterator_to_array($iterator)),
-            function ($str) {
-                return strpos($str, '/.') === false; 
-            }
-        )
-    );
+    
+    $files = array_map('strval', iterator_to_array($iterator));
+    $files = array_filter($files, function ($str) {
+        return strpos($str, '/.') === false; 
+    });
+    
+    if ($basepath) {
+        $files = array_map(
+            function ($file) use ($basepath) {
+                return strpos($file, strlen($basepath));
+            }, 
+            $files
+        );
+    }
+    
+    return array_values($files);
 }
 
 /**
