@@ -23,4 +23,3 @@ To start with Bloge you need:
 * PHP 5.4 or higher
 * Terminal (CLI PHP)
 * Composer
-<!-- * Pair of straight palms. So straight, much palms -->
