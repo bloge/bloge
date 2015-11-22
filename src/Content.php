@@ -5,14 +5,20 @@ namespace Bloge;
 interface Content
 {
     /**
-     * @param string $id
+     * @param string $file
      * @return array
      */
-    public function fetch($id);
+    public function fetch($file);
     
     /**
-     * @param string $id
+     * @param string $file
      * @return bool
      */
-    public function has($id);
+    public function has($file);
+    
+    /**
+     * @param string $directory
+     * @return array
+     */
+    public function browse($directory = '');
 }

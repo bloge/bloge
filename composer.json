@@ -2,7 +2,10 @@
     "autoload": {
         "psr-4": {
             "Bloge\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
     },
     "require": {
         "erusev/parsedown": "^1.5",

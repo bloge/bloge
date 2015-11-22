@@ -29,4 +29,9 @@ class Content implements \Bloge\Content
     {
         return file_exists("{$this->path}/$file");
     }
+    
+    public function browse($directory = '')
+    {
+        return \Bloge\listFiles("{$this->path}/$directory");
+    }
 }

@@ -38,4 +38,12 @@ class ContentTest extends TestCase
             $this->createContent()->has($file)
         );
     }
+    
+    public function testList()
+    {
+        $this->assertEquals(
+            Bloge\listFiles(__DIR__ . '/resources/content'),
+            $this->createContent()->browse()
+        );
+    }
 }
