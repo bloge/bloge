@@ -8,7 +8,7 @@ class ContentTest extends TestCase
     {
         return [
             ['index.php', ['title' => 'hello', 'content' => 'Hello!'], true],
-            ['foo_bar_baz.php', [], false]
+            ['tron.php', [], false]
         ];
     }
     
