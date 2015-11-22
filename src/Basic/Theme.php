@@ -3,6 +3,7 @@
 namespace Bloge\Basic;
 
 use Bloge\Theme as ITheme;
+use Bloge\FileNotFoundException;
 
 class Theme implements ITheme
 {
@@ -22,7 +23,7 @@ class Theme implements ITheme
     public function partial($__view__, array $__data__ = [])
     {
         if (!$this->has($__view__)) {
-            return ITheme::NOT_FOUND;
+            throw new FileNotFoundException("File '$__view__' was not found in '{$this->path}");
         }
         
         ob_start();

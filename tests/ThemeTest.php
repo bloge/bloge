@@ -9,8 +9,15 @@ class ThemeTest extends TestCase
     {
         return [
             ['footer.php', 'Doge (c) 2015', true],
-            ['header.php', 'Doge\'s bloge', true],
-            ['foobar.php', ITheme::NOT_FOUND, false]
+            ['header.php', 'Doge\'s bloge', true]
+        ];
+    }
+    
+    public function failingPartials()
+    {
+        return [
+            ['foobar.php'],
+            ['aakbar.php']
         ];
     }
     
@@ -28,6 +35,15 @@ class ThemeTest extends TestCase
             $expected, 
             $this->createTheme()->partial($file)
         );
+    }
+    
+    /**
+     * @dataProvider failingPartials
+     * @expectedException \Bloge\FileNotFoundException
+     */
+    public function testFailingPartial($file)
+    {
+        $this->createTheme()->partial($file);
     }
     
     /**

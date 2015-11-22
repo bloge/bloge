@@ -5,16 +5,18 @@ namespace Bloge;
 interface Theme
 {
     /**
-     * @const string NOT_FOUND
-     */
-    const NOT_FOUND = 'FILE_NOT_FOUND';
-    
-    /**
      * @param string $file
      * @param array $data
+     * @throws \Bloge\FileNotFoundException
      * @return string
      */
     public function partial($file, array $data = []);
+    
+    /**
+     * @param string $file
+     * @return bool
+     */
+    public function has($file);
     
     /**
      * @param string $file
