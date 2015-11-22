@@ -8,35 +8,42 @@ namespace Bloge;
  * @return array
  */
 function listFiles($directory, $basepath = '') {
-    $iterator = new \RecursiveIteratorIterator(
-        new \RecursiveDirectoryIterator($directory), 
-        \RecursiveIteratorIterator::SELF_FIRST
-    );
+    $files = getFiles(new \RecursiveIteratorIterator(
+        new \RecursiveDirectoryIterator($directory)
+    ), $basepath);
     
+    $files = array_filter($files, '\Bloge\isFileHidden');
+    
+    return $files;
+}
+
+/**
+ * @param \Iterator $iterator
+ * @param string $basepath
+ * @return array
+ */
+function getFiles(\Iterator $iterator, $basepath = '')
+{
     $files = [];
+    $length = strlen($basepath);
     
     foreach ($iterator as $file) {
         if (!$file->isFile()) {
             continue;
         }
         
-        $files[] = (string)$file;
+        $files[] = substr($file, $length);
     }
     
-    $files = array_filter($files, function ($str) {
-        return strpos($str, '/.') === false; 
-    });
-    
-    if ($basepath) {
-        $files = array_map(
-            function ($file) use ($basepath) {
-                return substr($file, strlen($basepath));
-            }, 
-            $files
-        );
-    }
-    
-    return array_values($files);
+    return $files;
+}
+
+/**
+ * @param string $file
+ * @return bool
+ */
+function isFileHidden ($file) {
+    return strpos($file, '/.') === false; 
 }
 
 /**
