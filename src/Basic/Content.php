@@ -19,7 +19,7 @@ class Content implements \Bloge\Content
         
         ob_start();
         
-        $data = require "{$this->path}/$file";
+        $data = require $this->path($file);
         $data['content'] = ob_get_clean();
         
         return $data;
@@ -27,11 +27,15 @@ class Content implements \Bloge\Content
     
     public function has($file)
     {
-        return file_exists("{$this->path}/$file");
+        return file_exists($this->path($file));
     }
     
     public function browse($directory = '')
     {
-        return \Bloge\listFiles("{$this->path}/$directory");
+        return \Bloge\listFiles($this->path($directory));
+    }
+    
+    public function path($path = '') {
+        return "{$this->path}/$path";
     }
 }

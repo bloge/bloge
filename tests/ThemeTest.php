@@ -23,7 +23,7 @@ class ThemeTest extends TestCase
     
     private function createTheme()
     {
-        return new Theme(__DIR__ . '/resources/theme');
+        return new Theme(THEME_DIR);
     }
     
     /**

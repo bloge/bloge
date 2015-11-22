@@ -2,5 +2,8 @@
 .DS_Store
 
 # Composer
-composer.lock
-vendor/
+/composer.lock
+/vendor
+
+# Tests
+/tests/resources/build

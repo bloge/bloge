@@ -12,6 +12,6 @@
         "mustangostang/spyc": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "5.0"
     }
 }

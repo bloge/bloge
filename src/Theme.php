@@ -24,4 +24,10 @@ interface Theme
      * @return string
      */
     public function render($file, array $data = []);
+    
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function path($path = '');
 }

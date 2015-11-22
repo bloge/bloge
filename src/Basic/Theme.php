@@ -8,7 +8,7 @@ use Bloge\FileNotFoundException;
 class Theme implements ITheme
 {
     protected $path;
-    protected $data;
+    protected $data = [];
     
     public function __construct($path)
     {
@@ -17,7 +17,7 @@ class Theme implements ITheme
     
     public function has($view)
     {
-        return file_exists("{$this->path}/$view");
+        return file_exists($this->path($view));
     }
     
     public function partial($__view__, array $__data__ = [])
@@ -28,9 +28,8 @@ class Theme implements ITheme
         
         ob_start();
         
-        extract(array_merge($this->data ?: [], $__data__));
-        
-        require("{$this->path}/$__view__");
+        extract(array_merge($this->data, $__data__));
+        require($this->path($__view__));
         
         return ob_get_clean();
     }
@@ -41,5 +40,9 @@ class Theme implements ITheme
         $this->data = $data;
         
         return $this->partial($layout, $data);
+    }
+    
+    public function path($path = '') {
+        return "{$this->path}/$path";
     }
 }

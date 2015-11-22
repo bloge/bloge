@@ -14,6 +14,7 @@ simplicity, flexibility and elegance of API (just like doge).
 
 * Simple and flexible API
 * Dynamic/static modes
+* Content processing, filtering and mapping
 
 ## Get started
 

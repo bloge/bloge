@@ -21,4 +21,10 @@ interface Content
      * @return array
      */
     public function browse($directory = '');
+    
+    /**
+     * @param string $path
+     * @return string
+     */
+    public function path($path = '');
 }

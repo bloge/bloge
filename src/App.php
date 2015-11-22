@@ -2,4 +2,18 @@
 
 namespace Bloge;
 
-class App {}
+interface App 
+{
+    /**
+     * @param string $route
+     * @return string
+     */
+    public function render($route = '');
+    
+    /**
+     * Builds content into $destination folder
+     * 
+     * @param string $destination
+     */
+    public function build($destination);
+}

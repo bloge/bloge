@@ -14,7 +14,7 @@ class ContentTest extends TestCase
     
     private function createContent()
     {
-        return new Content(__DIR__ . '/resources/content');
+        return new Content(CONTENT_DIR);
     }
     
     /**
@@ -42,7 +42,7 @@ class ContentTest extends TestCase
     public function testList()
     {
         $this->assertEquals(
-            Bloge\listFiles(__DIR__ . '/resources/content'),
+            Bloge\listFiles(CONTENT_DIR),
             $this->createContent()->browse()
         );
     }
