@@ -8,7 +8,12 @@
 
 So... Bloge is another open source static website generator. Influenced by 
 [metalsmith](https://github.com/segmentio/metalsmith). Bloge is focused on 
-simplicity and elegance of API (just like doge).
+simplicity, flexibility and elegance of API (just like doge).
+
+## Features
+
+* Simple and flexible API
+* Dynamic/static modes
 
 ## Get started
 
