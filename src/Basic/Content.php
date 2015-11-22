@@ -36,6 +36,6 @@ class Content implements \Bloge\Content
     
     public function browse($directory = '')
     {
-        return \Bloge\listFiles($this->path($directory));
+        return \Bloge\listFiles($this->path($directory), $this->path);
     }
 }

@@ -13,7 +13,16 @@ function listFiles($directory, $basepath = '') {
         \RecursiveIteratorIterator::SELF_FIRST
     );
     
-    $files = array_map('strval', iterator_to_array($iterator));
+    $files = [];
+    
+    foreach ($iterator as $file) {
+        if (!$file->isFile()) {
+            continue;
+        }
+        
+        $files[] = (string)$file;
+    }
+    
     $files = array_filter($files, function ($str) {
         return strpos($str, '/.') === false; 
     });
@@ -21,7 +30,7 @@ function listFiles($directory, $basepath = '') {
     if ($basepath) {
         $files = array_map(
             function ($file) use ($basepath) {
-                return strpos($file, strlen($basepath));
+                return substr($file, strlen($basepath));
             }, 
             $files
         );
@@ -37,13 +46,13 @@ function listFiles($directory, $basepath = '') {
 function mkdirPath($path, $basepath = '')
 {
     $frags = explode('/', trim($path, '/'));
-    $path  = rtrim($basepath, '/') . '/';
+    $path  = rtrim($basepath, '/');
     
     while ($frags) {
         $frag  = array_shift($frags);
-        $path .= "$frag/";
+        $path .= "/$frag";
         
-        if (!file_exists($path) && strpos($frag, '.') === false) {
+        if (!file_exists($path) && strpos($frag, '.') <= 0) {
             mkdir($path);
         }
     }

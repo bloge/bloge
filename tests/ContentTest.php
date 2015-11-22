@@ -42,7 +42,7 @@ class ContentTest extends TestCase
     public function testBrowse()
     {
         $this->assertEquals(
-            Bloge\listFiles(CONTENT_DIR),
+            Bloge\listFiles(CONTENT_DIR, CONTENT_DIR),
             $this->createContent()->browse()
         );
     }

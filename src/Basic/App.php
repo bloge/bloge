@@ -23,11 +23,11 @@ class App implements \Bloge\App
     
     public function build($destination)
     {
-        $path = $this->content->path();
+        $destination = rtrim($destination, '/');
         
         foreach ($this->content->browse() as $file) {
-            $file = substr($file, strlen($path));
-            $name = pathinfo($file, PATHINFO_FILENAME) . '.html';
+            $info = pathinfo($file);
+            $name =  "{$info['dirname']}/{$info['filename']}.html";
             
             \Bloge\mkdirPath($name, $destination);
             
