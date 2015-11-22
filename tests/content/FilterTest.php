@@ -1,9 +1,8 @@
 <?php
 
-use Bloge\Content\ArrayContent;
 use Bloge\Content\Filter;
 
-class FilterTest extends TestCase
+class FilterTest extends ContentTestCase
 {
     public function has()
     {
@@ -11,24 +10,6 @@ class FilterTest extends TestCase
             ['/index.php', true],
             ['/_drafts/post.php', false]
         ];
-    }
-    
-    public function content()
-    {
-        return new ArrayContent([
-            '/index.php' => [
-                'title' => 'Hello!',
-                'content' => 'Welcome!'
-            ],
-            '/projects.php' => [
-                'title' => 'Projects',
-                'content' => 'Projects...'
-            ],
-            '/_drafts/post.php' => [
-                'title' => 'Once upon a time',
-                'content' => 'There was a boy'
-            ]
-        ]);
     }
     
     public function filter()
@@ -44,7 +25,7 @@ class FilterTest extends TestCase
     
     public function testFilteredBrowse()
     {
-        $this->assertCount(2, $this->filter()->browse());
+        $this->assertCount(3, $this->filter()->browse());
     }
     
     /**

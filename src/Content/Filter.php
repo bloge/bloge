@@ -3,6 +3,7 @@
 namespace Bloge\Content;
 
 use Bloge\Content;
+use Bloge\FileNotFoundException;
 
 class Filter implements Content
 {
@@ -12,7 +13,7 @@ class Filter implements Content
     
     public function __construct(Content $content)
     {
-        $this->content = $content;    
+        $this->content = $content;
     }
     
     public function addFilter(callable $filter)
@@ -38,9 +39,11 @@ class Filter implements Content
     
     public function fetch($file)
     {
-        return $this->has($file)
-            ? $this->content->fetch($file)
-            : [];
+        if (!$this->has($file)) {
+            throw new FileNotFoundException("File '$file' not found!");
+        }
+        
+        return $this->content->fetch($file);
     }
     
     public function browse($directory = '')

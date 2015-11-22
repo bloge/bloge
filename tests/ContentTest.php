@@ -3,7 +3,7 @@
 use Bloge\Basic\Content;
 
 /**
- * @todo cleanup data dataProvider
+ * @todo cleanup data() dataProvider
  */
 class ContentTest extends TestCase
 {
