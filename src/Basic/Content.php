@@ -8,7 +8,16 @@ class Content implements \Bloge\Content
     
     public function __construct($path)
     {
-        $this->path = $path;
+        $this->path = rtrim($path, '/');
+    }
+    
+    public function has($file)
+    {
+        return file_exists($this->path($file));
+    }
+    
+    public function path($path = '') {
+        return "{$this->path}/$path";
     }
     
     public function fetch($file)
@@ -25,17 +34,8 @@ class Content implements \Bloge\Content
         return $data;
     }
     
-    public function has($file)
-    {
-        return file_exists($this->path($file));
-    }
-    
     public function browse($directory = '')
     {
         return \Bloge\listFiles($this->path($directory));
-    }
-    
-    public function path($path = '') {
-        return "{$this->path}/$path";
     }
 }

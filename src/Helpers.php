@@ -40,3 +40,13 @@ function mkdirPath($path, $basepath = '')
         }
     }
 }
+
+/**
+ * @param string $__view__
+ * @param array $__data__
+ */
+function render ($__view__, array $__data__) {
+    extract($__data__);
+    
+    require($__view__);
+}

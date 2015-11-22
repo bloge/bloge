@@ -20,17 +20,6 @@ class ContentTest extends TestCase
     /**
      * @dataProvider data
      */
-    public function testFetch($file, $expected)
-    {
-        $this->assertEquals(
-            $expected, 
-            $this->createContent()->fetch($file)
-        );
-    }
-    
-    /**
-     * @dataProvider data
-     */
     public function testHas($file, $_, $expected)
     {
         $this->assertEquals(
@@ -39,7 +28,18 @@ class ContentTest extends TestCase
         );
     }
     
-    public function testList()
+    /**
+     * @dataProvider data
+     */
+    public function testFetch($file, $expected)
+    {
+        $this->assertEquals(
+            $expected, 
+            $this->createContent()->fetch($file)
+        );
+    }
+    
+    public function testBrowse()
     {
         $this->assertEquals(
             Bloge\listFiles(CONTENT_DIR),

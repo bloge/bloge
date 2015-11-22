@@ -29,6 +29,17 @@ class ThemeTest extends TestCase
     /**
      * @dataProvider partials
      */
+    public function testHas($file, $_, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            $this->createTheme()->has($file)
+        );
+    }
+    
+    /**
+     * @dataProvider partials
+     */
     public function testPartial($file, $expected)
     {
         $this->assertEquals(
@@ -46,18 +57,7 @@ class ThemeTest extends TestCase
         $this->createTheme()->partial($file);
     }
     
-    /**
-     * @dataProvider partials
-     */
-    public function testHas($file, $_, $expected)
-    {
-        $this->assertEquals(
-            $expected,
-            $this->createTheme()->has($file)
-        );
-    }
-    
-    public function testLayout()
+    public function testRender()
     {
         $this->assertEquals(
             "Doge's bloge \nTitle \nContent \nDoge (c) 2015",
