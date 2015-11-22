@@ -11,12 +11,6 @@ interface Theme
     public function has($file);
     
     /**
-     * @param string $path
-     * @return string
-     */
-    public function path($path = '');
-    
-    /**
      * @param string $file
      * @param array $data
      * @throws \Bloge\FileNotFoundException

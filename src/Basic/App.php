@@ -15,8 +15,7 @@ class App implements \Bloge\App
     
     public function render($route = '')
     {
-        $route = $route ?: 'index.php';
-        $data  = $this->content->fetch($route);
+        $data = $this->content->fetch($route);
         
         return $this->theme->render('layout.php', $data);
     }
@@ -27,7 +26,7 @@ class App implements \Bloge\App
         
         foreach ($this->content->browse() as $file) {
             $info = pathinfo($file);
-            $name =  "{$info['dirname']}/{$info['filename']}.html";
+            $name = "{$info['dirname']}/{$info['filename']}.html";
             
             \Bloge\mkdirPath($name, $destination);
             
