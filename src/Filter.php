@@ -9,4 +9,10 @@ interface Filter
      * @return array 
      */
     public function filter(array $data);
+    
+    /**
+     * @param mixed $item
+     * @return mixed
+     */
+    public function filterItem($item);
 }

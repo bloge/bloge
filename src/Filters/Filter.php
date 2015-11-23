@@ -2,12 +2,10 @@
 
 namespace Bloge\Filters;
 
-use Bloge\Filter;
-
 /**
  * Filters
  */
-class Filters implements Filter
+class Filter implements \Bloge\Filter
 {
     /**
      * @var array $filters
@@ -32,5 +30,17 @@ class Filters implements Filter
         }
         
         return $data;
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function filterItem($item)
+    {
+        foreach ($this->filters as $filter) {
+            $item = $filter($item);
+        }
+        
+        return $item;
     }
 }
