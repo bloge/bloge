@@ -79,6 +79,14 @@ function expandPath($path, $basepath = '')
 }
 
 /**
+ * @param array $data
+ * @param callable $callback
+ */
+function array_map($data, callable $callback) {
+    return \array_map($callback, $data);
+}
+
+/**
  * @param string $__view__
  * @param array $__data__
  * @return string

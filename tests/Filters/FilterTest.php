@@ -28,7 +28,7 @@ class FilterTest extends TestCase
     
     private function filter()
     {
-        $filter = new Filter;
+        $filter = new Filter('array_filter');
         $filter->add(function ($value) {
             return strpos($value, '.') === false;
         });

@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Filters\Mapper;
+use Bloge\Filters\Filter;
 
 class MapperTest extends TestCase
 {
@@ -28,8 +28,8 @@ class MapperTest extends TestCase
     
     private function mapper()
     {
-        $mapper = new Mapper;
-        $mapper->map(function ($value) {
+        $mapper = new Filter('\Bloge\array_map');
+        $mapper->add(function ($value) {
             return str_replace('.', ':', $value);
         });
         
