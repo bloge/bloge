@@ -87,4 +87,16 @@ Much projects, so awesome:
             $this->createContent()->browse()
         );
     }
+    
+    public function testBrowseMatchingHas()
+    {
+        $content = $this->createContent();
+        $result = true;
+        
+        foreach ($content->browse() as $file) {
+            $result = $result && $content->has($file);
+        }
+        
+        $this->assertTrue($result);
+    }
 }

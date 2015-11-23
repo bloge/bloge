@@ -8,7 +8,7 @@
 
 require 'vendor/autoload.php';
 
-use Bloge\App;
+use Bloge\Basic\App;
 use Bloge\Basic\Theme;
 use Bloge\Basic\Content;
 

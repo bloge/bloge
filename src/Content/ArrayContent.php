@@ -20,8 +20,9 @@ class ArrayContent implements Content
     
     public function fetch($file)
     {
-        return $this->has($file) ? $this->content[$file]
-                                 : [];
+        return $this->has($file) 
+            ? $this->content[$file]
+            : [];
     }
     
     public function browse($directory = '')

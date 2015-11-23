@@ -17,11 +17,7 @@ class Theme implements ITheme
     
     public function has($view)
     {
-        return file_exists($this->path($view));
-    }
-    
-    public function path($path = '') {
-        return "{$this->path}/$path";
+        return file_exists("{$this->path}/$view");
     }
     
     public function partial($view, array $data = [])
@@ -30,7 +26,10 @@ class Theme implements ITheme
             throw new FileNotFoundException($view, $this->path);
         }
         
-        return \Bloge\render($this->path($view), $data);
+        $view = "{$this->path}/$view";
+        $data = array_merge($this->data, $data);
+        
+        return \Bloge\render($view, $data);
     }
     
     public function render($layout, array $data = [])
