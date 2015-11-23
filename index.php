@@ -19,4 +19,13 @@ $bloge = (new App(__DIR__))
     ->plugin('\Bloge\markdown')
     ->plugin('\Bloge\drafts');
 
+$creator = new Creator(new Content);
+
+$creator->data($data)
+    ->data($markdown)
+    ->filter($mapper)
+    ->filter($filter);
+
+$creator->browse();
+
 echo $bloge->render($_GET['route']);

@@ -12,7 +12,7 @@ class Theme implements ITheme
     
     public function __construct($path)
     {
-        $this->path = rtrim($path, '/');
+        $this->path = chop($path, '/');
     }
     
     public function has($view)

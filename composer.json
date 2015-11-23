@@ -10,7 +10,7 @@
     "autoload-dev": {
         "files": [
             "tests/TestCase.php",
-            "tests/content/ContentTestCase.php"
+            "tests/ContentTestCase.php"
         ]
     },
     "require": {

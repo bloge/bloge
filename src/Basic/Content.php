@@ -10,7 +10,7 @@ class Content implements \Bloge\Content
     
     public function __construct($path)
     {
-        $this->path = rtrim($path, '/');
+        $this->path = chop($path, '/');
     }
     
     public function has($file)

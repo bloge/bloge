@@ -11,7 +11,7 @@ return [
     ],
     '/_drafts/post.php' => [
         'title' => 'Once upon a time',
-        'content' => 'There was a boy'
+        'content' => 'There **was** a boy'
     ],
     '/404.php' => [
         'title' => 'Not Found - 404',
