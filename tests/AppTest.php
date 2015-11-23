@@ -9,6 +9,7 @@ class AppTest extends TestCase
     private function createApp()
     {
         return new App(
+            MAIN_DIR,
             new Content(CONTENT_DIR),
             new Theme(THEME_DIR)
         );

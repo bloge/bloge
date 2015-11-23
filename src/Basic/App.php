@@ -7,10 +7,16 @@ class App implements \Bloge\App
     protected $content;
     protected $theme;
     
-    public function __construct(Content $content, Theme $theme)
+    public function __construct($basepath, Content $content, Theme $theme)
     {
+        $this->basepath = $basepath;
         $this->content = $content;
         $this->theme = $theme;
+    }
+    
+    public function basepath()
+    {
+        return $this->basepath;
     }
     
     public function render($route = '')
@@ -25,10 +31,9 @@ class App implements \Bloge\App
         $destination = rtrim($destination, '/');
         
         foreach ($this->content->browse() as $file) {
-            $info = pathinfo($file);
-            $name = "{$info['dirname']}/{$info['filename']}.html";
+            $name = \Bloge\replaceExtension($file, 'html');
             
-            \Bloge\mkdirPath($name, $destination);
+            \Bloge\expandPath($name, $destination);
             
             file_put_contents("$destination/$name", $this->render($file));
         }

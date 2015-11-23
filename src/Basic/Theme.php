@@ -27,14 +27,10 @@ class Theme implements ITheme
     public function partial($view, array $data = [])
     {
         if (!$this->has($view)) {
-            throw new FileNotFoundException("File '$view' was not found in '{$this->path}");
+            throw new FileNotFoundException($view, $this->path);
         }
         
-        ob_start();
-        
-        \Bloge\render($this->path($view), $data);
-        
-        return ob_get_clean();
+        return \Bloge\render($this->path($view), $data);
     }
     
     public function render($layout, array $data = [])

@@ -8,7 +8,8 @@ class Mapper implements Content
 {
     protected $content;
     protected $mappers;
-    protected $cached = [];
+    protected $mappersAll;
+    protected $cached;
     
     public function __construct(Content $content)
     {
@@ -22,7 +23,7 @@ class Mapper implements Content
     
     public function mapAll($callback)
     {
-        $this->mappers[0][] = $callback;
+        $this->mappersAll[] = $callback;
     }
     
     /** Interface implementation */
@@ -41,26 +42,20 @@ class Mapper implements Content
     
     public function fetch($file)
     {
-        $file = isset($this->cached[$file]) ? $this->cached[$file]
-                                            : null;
-        
-        if ($file === null) {
-            throw new FileNotFoundException("File '$file' not found!");
-        }
-        
-        return $this->content->fetch($file);
+        return $this->content->fetch($this->has($file) 
+            ? $this->cached[$file]
+            : $file);
     }
     
     public function browse($directory = '')
     {
         $content = $this->content->browse($directory);
-        
         $content = array_map(function ($file) {
             $file = isset($this->mappers[$file]) ? $this->mappers[$file]
                                                  : $file;
             
-            if (isset($this->mappers[0])) {
-                foreach ($this->mappers[0] as $mapper) {
+            if (!empty($this->mappersAll)) {
+                foreach ($this->mappersAll as $mapper) {
                     $file = $mapper($file);
                 }
             }

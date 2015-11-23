@@ -40,7 +40,7 @@ class Filter implements Content
     public function fetch($file)
     {
         if (!$this->has($file)) {
-            throw new FileNotFoundException("File '$file' not found!");
+            throw new FileNotFoundException($file);
         }
         
         return $this->content->fetch($file);

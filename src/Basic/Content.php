@@ -27,9 +27,7 @@ class Content implements \Bloge\Content
     public function fetch($file)
     {
         if (!$this->has($file)) {
-            throw new FileNotFoundException(
-                "Content file '$file' wasn't found in '{$this->path}'"
-            );
+            throw new FileNotFoundException($file, $this->path);
         }
         
         ob_start();

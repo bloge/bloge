@@ -3,18 +3,22 @@
 namespace Bloge;
 
 /**
+ * @internal
+ */
+
+/**
  * @param string $directory
  * @param string $basepath
  * @return array
  */
 function listFiles($directory, $basepath = '') {
-    $files = getFiles(new \RecursiveIteratorIterator(
-        new \RecursiveDirectoryIterator($directory)
-    ), $basepath);
+    $files = getFiles(
+        new \RecursiveIteratorIterator(
+        new \RecursiveDirectoryIterator($directory)), 
+        $basepath
+    );
     
-    $files = array_filter($files, '\Bloge\isFileHidden');
-    
-    return $files;
+    return array_filter($files, '\Bloge\isFileHidden');
 }
 
 /**
@@ -28,9 +32,7 @@ function getFiles(\Iterator $iterator, $basepath = '')
     $length = strlen($basepath);
     
     foreach ($iterator as $file) {
-        if (!$file->isFile()) {
-            continue;
-        }
+        if (!$file->isFile()) continue;
         
         $files[] = substr($file, $length);
     }
@@ -42,15 +44,26 @@ function getFiles(\Iterator $iterator, $basepath = '')
  * @param string $file
  * @return bool
  */
-function isFileHidden ($file) {
+function isFileHidden($file) {
     return strpos($file, '/.') === false; 
+}
+
+/**
+ * @param string $path
+ * @param string $extension
+ * @return string
+ */
+function replaceExtension($path, $extension) {
+    extract(pathinfo($path));
+    
+    return "$dirname/$filename.$extension";
 }
 
 /**
  * @param string $path
  * @param string $basepath
  */
-function mkdirPath($path, $basepath = '')
+function expandPath($path, $basepath = '')
 {
     $frags = explode('/', trim($path, '/'));
     $path  = rtrim($basepath, '/');
@@ -68,9 +81,13 @@ function mkdirPath($path, $basepath = '')
 /**
  * @param string $__view__
  * @param array $__data__
+ * @return string
  */
-function render ($__view__, array $__data__) {
-    extract($__data__);
+function render($__view__, array $__data__) {
+    ob_start();
     
+    extract($__data__);
     require($__view__);
+    
+    return ob_get_clean();
 }

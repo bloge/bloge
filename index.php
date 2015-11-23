@@ -12,8 +12,11 @@ use Bloge\App;
 use Bloge\Basic\Theme;
 use Bloge\Basic\Content;
 
-$bloge = new App;
+$bloge = (new App(__DIR__))
+    ->theme('theme')
+    ->content('content')
+    ->plugin('\Bloge\twig')
+    ->plugin('\Bloge\markdown')
+    ->plugin('\Bloge\drafts');
 
-echo $bloge->content(new Theme(__DIR__ . '/theme'))
-           ->theme(new Content(__DIR__ . '/content'))
-           ->render($_GET['route']);
+echo $bloge->render($_GET['route']);
