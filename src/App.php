@@ -5,11 +5,6 @@ namespace Bloge;
 interface App 
 {
     /**
-     * @return string
-     */
-    public function basepath();
-    
-    /**
      * @param string $route
      * @return string
      */

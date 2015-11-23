@@ -2,10 +2,9 @@
 
 namespace Bloge\Basic;
 
-use Bloge\Theme as ITheme;
 use Bloge\FileNotFoundException;
 
-class Theme implements ITheme
+class Theme implements \Bloge\Theme
 {
     protected $path;
     protected $data = [];
