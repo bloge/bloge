@@ -13,15 +13,13 @@ class Content implements \Bloge\Content
         $this->path = chop($path, '/');
     }
     
-    public function has($file)
-    {
-        $path = $this->path($file);
-        
-        return file_exists($path) && !is_dir($path);
-    }
-    
     public function path($path = '') {
         return "{$this->path}/$path";
+    }
+    
+    public function has($file)
+    {
+        return is_file($this->path($file));
     }
     
     public function fetch($file)

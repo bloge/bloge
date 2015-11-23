@@ -10,14 +10,16 @@ interface Creator extends Content
     public function __construct(Content $content);
     
     /**
-     * @param \Bloge\Processor $processor
+     * @param \Bloge\Processor|callable $processor
+     * @throws \InvalidArgumentException
      * @return \Bloge\Creator $this
      */
-    public function data(Processor $processor);
+    public function data($processor);
     
     /**
-     * @param \Bloge\Filter $filter
+     * @param \Bloge\Filter|callable $filter
+     * @throws \InvalidArgumentException
      * @return \Bloge\Creator $this
      */
-    public function filter(Filter $filter);
+    public function filter($filter);
 }

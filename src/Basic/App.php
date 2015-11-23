@@ -28,7 +28,7 @@ class App implements \Bloge\App
     
     public function build($destination)
     {
-        $destination = rtrim($destination, '/');
+        $destination = chop($destination, '/');
         
         foreach ($this->content->browse() as $file) {
             $name = \Bloge\replaceExtension($file, 'html');

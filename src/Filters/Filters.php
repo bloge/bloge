@@ -1,18 +1,30 @@
 <?php
 
-namespace Bloge\Processors;
+namespace Bloge\Filters;
 
-use Bloge\Filter as IFilter;
+use Bloge\Filter;
 
-class Filter implements IFilter
+/**
+ * Filters
+ */
+class Filters implements Filter
 {
-    protected $filter = [];
+    /**
+     * @var array $filters
+     */
+    protected $filters = [];
     
+    /**
+     * @param callable $filter
+     */
     public function add(callable $filter)
     {
         $this->filters[] = $filter;
     }
     
+    /**
+     * @{inheritDoc}
+     */
     public function filter(array $data)
     {
         foreach ($this->filters as $filter) {
