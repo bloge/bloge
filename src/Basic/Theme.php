@@ -6,31 +6,41 @@ use Bloge\FileNotFoundException;
 
 class Theme implements \Bloge\Theme
 {
+    /**
+     * @var string $path
+     */
     protected $path;
+    
+    /**
+     * @var array $data
+     */
     protected $data = [];
     
+    /**
+     * @param string $path
+     */
     public function __construct($path)
     {
         $this->path = chop($path, '/');
     }
     
-    public function has($view)
-    {
-        return file_exists("{$this->path}/$view");
-    }
-    
+    /**
+     * @{inheritDoc} 
+     */
     public function partial($view, array $data = [])
     {
-        if (!$this->has($view)) {
+        $path = "{$this->path}/$view";
+        
+        if (!file_exists($path)) {
             throw new FileNotFoundException($view, $this->path);
         }
         
-        $view = "{$this->path}/$view";
-        $data = array_merge($this->data, $data);
-        
-        return \Bloge\render($view, $data);
+        return \Bloge\render($path, array_merge($this->data, $data));
     }
     
+    /**
+     * @{inheritDoc} 
+     */
     public function render($layout, array $data = [])
     {
         $data['theme'] = $this;

@@ -6,9 +6,16 @@ use Bloge\Processor;
 
 class DataMapper implements Processor
 {
-    protected $map = [];
+    /**
+     * @var array $map
+     */
+    protected $map;
     
-    public function map($file, $data)
+    /**
+     * @param string $file
+     * @param array $data
+     */
+    public function map($file, array $data)
     {
         $this->map[$file] = $data;
     }
@@ -18,8 +25,6 @@ class DataMapper implements Processor
      */
     public function process($file, array $data)
     {
-        
-        
         return isset($this->map[$file])
             ? array_merge($data, $this->map[$file])
             : $data;

@@ -21,3 +21,4 @@ $bloge->theme('theme')
     ->plugin('\Bloge\drafts');
 
 echo $bloge->render($_GET['route']);
+

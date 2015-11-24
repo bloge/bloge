@@ -17,6 +17,9 @@ class Filter implements \Bloge\Filter
      */
     protected $function;
     
+    /**
+     * @param callable $function
+     */
     public function __construct(callable $function)
     {
         $this->function = $function;

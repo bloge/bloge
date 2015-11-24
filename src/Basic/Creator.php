@@ -4,25 +4,45 @@ namespace Bloge\Basic;
 
 use Bloge\Content as IContent;
 use Bloge\Creator as ICreator;
+
 use Bloge\Filter;
-use Bloge\FileNotFoundException;
 use Bloge\Processor;
+
+use Bloge\FileNotFoundException;
 
 class Creator implements ICreator
 {
-    protected $map;
+    /**
+     * @var \Bloge\Content $content
+     */
     protected $content;
     
+    /**
+     * @var array $map
+     */
+    protected $map = [];
+    
+    /**
+     * @var array $filters
+     */
     protected $filters = [];
+    
+    /**
+     * @var array $processors
+     */
     protected $processors = [];
     
+    /**
+     * @param \Bloge\Content $content
+     */
     public function __construct(IContent $content)
     {
         $this->content = $content;
     }
     
-    /** Creator interface implementations */
-    
+    /**
+     * @{inheritDoc}
+     */
     public function data($processor)
     {
         if (
@@ -38,6 +58,9 @@ class Creator implements ICreator
         $this->processors[] = $processor;
     }
     
+    /**
+     * @{inheritDoc}
+     */
     public function filter($filter)
     {
         if (
@@ -53,8 +76,9 @@ class Creator implements ICreator
         $this->filters[] = $filter;
     }
     
-    /** Content interface implementations */
-    
+    /**
+     * @{inheritDoc}
+     */
     public function has($file)
     {
         if (empty($this->map)) {
@@ -66,6 +90,9 @@ class Creator implements ICreator
         return isset($this->map[$file]);
     }
     
+    /**
+     * @{inheritDoc}
+     */
     public function fetch($file)
     {
         if (!$this->has($file)) {
@@ -83,6 +110,9 @@ class Creator implements ICreator
         return $data;
     }
     
+    /**
+     * @{inheritDoc}
+     */
     public function browse($directory = '')
     {
         $content = $this->content->browse($directory);

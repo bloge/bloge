@@ -8,8 +8,8 @@ class ThemeTest extends TestCase
     public function partials()
     {
         return [
-            ['footer.php', 'Doge (c) 2015', true],
-            ['header.php', 'Doge\'s bloge', true]
+            ['footer.php', 'Doge (c) 2015'],
+            ['header.php', 'Doge\'s bloge']
         ];
     }
     
@@ -24,17 +24,6 @@ class ThemeTest extends TestCase
     private function createTheme()
     {
         return new Theme(THEME_DIR);
-    }
-    
-    /**
-     * @dataProvider partials
-     */
-    public function testHas($file, $_, $expected)
-    {
-        $this->assertEquals(
-            $expected,
-            $this->createTheme()->has($file)
-        );
     }
     
     /**

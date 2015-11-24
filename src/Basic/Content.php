@@ -6,8 +6,14 @@ use Bloge\FileNotFoundException;
 
 class Content implements \Bloge\Content
 {
+    /**
+     * @var string $path
+     */
     protected $path;
     
+    /**
+     * @param string $path
+     */
     public function __construct($path)
     {
         $this->path = chop($path, '/');
