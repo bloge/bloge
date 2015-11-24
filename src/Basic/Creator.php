@@ -56,6 +56,8 @@ class Creator implements ICreator
         }
         
         $this->processors[] = $processor;
+        
+        return $this;
     }
     
     /**
@@ -74,6 +76,23 @@ class Creator implements ICreator
         }
         
         $this->filters[] = $filter;
+        
+        return $this;
+    }
+    
+    /**
+     * @param string $item
+     * @return string
+     */
+    private function filterItem($item)
+    {
+        foreach ($this->filters as $filter) {
+            $item = !is_callable($filter) 
+                ? $filter->filterItem($item) 
+                : current($filter([$item]));
+        }
+        
+        return $item;
     }
     
     /**
@@ -81,13 +100,9 @@ class Creator implements ICreator
      */
     public function has($file)
     {
-        if (empty($this->map)) {
-            $map = $this->browse();
-
-            $this->map = array_combine($map, $map);
-        }
+        $file = $this->filterItem($file);
         
-        return isset($this->map[$file]);
+        return $file !== false && $this->content->has($file);
     }
     
     /**
@@ -99,11 +114,11 @@ class Creator implements ICreator
             throw new FileNotFoundException($file);
         }
         
-        $data = $this->content->fetch($this->map[$file]);
+        $data = $this->content->fetch($this->filterItem($file));
         
         foreach ($this->processors as $processor) {
             $data = is_callable($processor)
-                ? $processor($data)
+                ? $processor($file, $data)
                 : $processor->process($file, $data);
         }
         

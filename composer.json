@@ -4,13 +4,15 @@
             "Bloge\\": "src/"
         },
         "files": [
-            "src/Helpers/internal.php"
+            "src/Helpers/internal.php",
+            "src/Helpers/plugins.php"
         ]
     },
     "autoload-dev": {
         "files": [
             "tests/TestCase.php",
-            "tests/ContentTestCase.php"
+            "tests/ContentTestCase.php",
+            "tests/Mocks/ArrayContent.php"
         ]
     },
     "require": {

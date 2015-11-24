@@ -1,7 +1,5 @@
 <?php
 
-namespace Bloge\Content;
-
 use Bloge\Content;
 
 class ArrayContent implements Content

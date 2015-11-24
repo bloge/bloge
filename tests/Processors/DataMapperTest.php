@@ -33,12 +33,12 @@ class DataMapperTest extends TestCase
     {
         $mapper = new DataMapper;
         
-        foreach ($expected as $k => $v) {
-            $mapper->map($k, $v);
+        foreach ($expected as $key => $value) {
+            $mapper->map($key, $value);
         }
         
-        foreach ($data as $k => $v) {
-            $data[$k] = $mapper->process($k, $v);
+        foreach ($data as $key => $value) {
+            $data[$key] = $mapper->process($key, $value);
         }
         
         $this->assertEquals($expected, $data);

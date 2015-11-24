@@ -12,6 +12,14 @@ class DataMapper implements Processor
     protected $map;
     
     /**
+     * @param arary $map
+     */
+    public function __construct(array $map = [])
+    {
+        $this->map = $map;
+    }
+    
+    /**
      * @param string $file
      * @param array $data
      */

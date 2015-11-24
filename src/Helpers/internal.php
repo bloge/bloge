@@ -53,10 +53,10 @@ function isFileHidden($file) {
  * @param string $extension
  * @return string
  */
-function replaceExtension($path, $extension) {
+function replaceExtension($path, $ext) {
     extract(pathinfo($path));
     
-    return "$dirname/$filename.$extension";
+    return ltrim("$dirname/$filename.$ext", '/');
 }
 
 /**

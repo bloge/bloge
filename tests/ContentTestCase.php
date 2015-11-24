@@ -1,7 +1,5 @@
 <?php
 
-use Bloge\Content\ArrayContent;
-
 class ContentTestCase extends TestCase
 {
     public function content()
