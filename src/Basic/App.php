@@ -15,14 +15,14 @@ class App implements \Bloge\App
     protected $theme;
     
     /**
-     * @param \Bloge\Content $content
+     * @param \Bloge\Content $creator
      * @param \Bloge\Theme $theme
      */
     public function __construct(
-        \Bloge\Content $content, 
+        \Bloge\Creator $creator, 
         \Bloge\Theme $theme
     ) {
-        $this->creator = new Creator($content);
+        $this->creator = $creator;
         $this->theme = $theme;
     }
     
