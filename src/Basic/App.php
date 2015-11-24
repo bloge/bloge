@@ -14,6 +14,10 @@ class App implements \Bloge\App
      */
     protected $theme;
     
+    /**
+     * @param \Bloge\Content $content
+     * @param \Bloge\Theme $theme
+     */
     public function __construct(
         \Bloge\Content $content, 
         \Bloge\Theme $theme
@@ -38,20 +42,5 @@ class App implements \Bloge\App
         $data = $this->creator->fetch($route);
         
         return $this->theme->render('layout.php', $data);
-    }
-    
-    /**
-     * @{inheritDoc}
-     */
-    public function build($destination)
-    {
-        $destination = chop($destination, '/');
-        
-        foreach ($this->creator->browse() as $file) {
-            $name = \Bloge\replaceExtension($file, 'html');
-            
-            \Bloge\expandPath($name, $destination);
-            file_put_contents("$destination/$name", $this->render($file));
-        }
     }
 }

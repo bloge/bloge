@@ -21,13 +21,4 @@ class AppTest extends TestCase
             $this->createApp()->render('index.php')
         );
     }
-    
-    public function testBuild()
-    {
-        $this->createApp()->build(BUILD_DIR);
-        $this->assertTrue(
-            count(scandir(BUILD_DIR)) > 2, 
-            'App could not build website!'
-        );
-    }
 }
