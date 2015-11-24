@@ -12,10 +12,11 @@ interface Content
     
     /**
      * @param string $file
-     * @throws \Bloge\FileNotFoundException
+     * @param array $data
+     * @throws \Bloge\FileNotFoundException if file wasn't found
      * @return array
      */
-    public function fetch($file);
+    public function fetch($file, array $data = []);
     
     /**
      * @param string $directory

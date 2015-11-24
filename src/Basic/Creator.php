@@ -108,7 +108,7 @@ class Creator implements ICreator
     /**
      * @{inheritDoc}
      */
-    public function fetch($file)
+    public function fetch($file, array $data = [])
     {
         if (!$this->has($file)) {
             throw new FileNotFoundException($file);
