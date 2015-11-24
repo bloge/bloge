@@ -2,7 +2,7 @@
 
 namespace Bloge\Basic;
 
-use Bloge\FileNotFoundException;
+use Bloge\NotDirectoryException;
 use Bloge\NotWritableException;
 
 class Builder implements \Bloge\Builder
@@ -28,11 +28,11 @@ class Builder implements \Bloge\Builder
         $destination = chop($destination, '/');
         
         if (!is_dir($destination)) {
-            throw NotDirectoryException($destination);
+            throw new NotDirectoryException($destination);
         }
         
         if (!is_writable($destination)) {
-            throw NotWritableException($destination);
+            throw new NotWritableException($destination);
         }
         
         foreach ($this->app->creator()->browse() as $file) {

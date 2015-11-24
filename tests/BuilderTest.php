@@ -8,22 +8,38 @@ use Bloge\Basic\Theme;
 
 class BuilderTest extends TestCase
 {
-    private function app()
+    private function builder()
     {
-        return new App(
-            new Creator(new Content(CONTENT_DIR)),
-            new Theme(THEME_DIR)
+        return new Builder(
+            new App(
+                new Creator(new Content(CONTENT_DIR)),
+                new Theme(THEME_DIR)
+            )
         );
     }
     
     public function testBuild()
     {
-        $builder = new Builder($this->app());
-        $builder->build(BUILD_DIR);
-        
+        $this->builder()->build(BUILD_DIR);
         $this->assertTrue(
             count(scandir(BUILD_DIR)) > 2, 
             'App could not build website!'
         );
+    }
+    
+    /**
+     * @expectedException \Bloge\NotWritableException
+     */
+    public function testNonWritableBuild()
+    {
+        $this->builder()->build(MAIN_DIR . '/non_writable');
+    }
+    
+    /**
+     * @expectedException \Bloge\NotDirectoryException
+     */
+    public function testNonDirectoryBuild()
+    {
+        $this->builder()->build(MAIN_DIR . '/content.php');
     }
 }
