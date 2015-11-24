@@ -8,7 +8,7 @@ use Bloge\Basic\Theme;
 
 class BuilderTest extends TestCase
 {
-    private function createApp()
+    private function app()
     {
         return new App(
             new Creator(new Content(CONTENT_DIR)),
@@ -18,7 +18,7 @@ class BuilderTest extends TestCase
     
     public function testBuild()
     {
-        $builder = new Builder($this->createApp());
+        $builder = new Builder($this->app());
         $builder->build(BUILD_DIR);
         
         $this->assertTrue(

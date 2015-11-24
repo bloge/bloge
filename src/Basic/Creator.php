@@ -84,7 +84,7 @@ class Creator implements ICreator
      * @param string $item
      * @return string
      */
-    private function filterItem($item)
+    protected function filterItem($item)
     {
         foreach ($this->filters as $filter) {
             $item = !is_callable($filter) 
