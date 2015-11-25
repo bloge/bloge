@@ -1,9 +1,9 @@
 <?php
 
-use Bloge\Basic\Theme;
-use Bloge\Theme as ITheme;
+use Bloge\Basic\Renderer;
+use Bloge\Renderer as IRenderer;
 
-class ThemeTest extends TestCase
+class RendererTest extends TestCase
 {
     public function partials()
     {
@@ -21,9 +21,9 @@ class ThemeTest extends TestCase
         ];
     }
     
-    private function createTheme()
+    private function createRenderer()
     {
-        return new Theme(THEME_DIR);
+        return new Renderer(THEME_DIR);
     }
     
     /**
@@ -33,7 +33,7 @@ class ThemeTest extends TestCase
     {
         $this->assertEquals(
             $expected, 
-            $this->createTheme()->partial($file)
+            $this->createRenderer()->partial($file)
         );
     }
     
@@ -43,14 +43,14 @@ class ThemeTest extends TestCase
      */
     public function testFailingPartial($file)
     {
-        $this->createTheme()->partial($file);
+        $this->createRenderer()->partial($file);
     }
     
     public function testRender()
     {
         $this->assertEquals(
             "Doge's bloge \nTitle \nContent \nDoge (c) 2015",
-            $this->createTheme()->render('layout.php', [
+            $this->createRenderer()->render('layout.php', [
                 'title'   => 'Title',
                 'content' => 'Content'
             ])

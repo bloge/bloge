@@ -4,7 +4,7 @@ namespace Bloge\Basic;
 
 use Bloge\FileNotFoundException;
 
-class Theme implements \Bloge\Theme
+class Renderer implements \Bloge\Renderer
 {
     /**
      * @var string $path

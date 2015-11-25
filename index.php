@@ -9,8 +9,6 @@
 require 'vendor/autoload.php';
 
 use Bloge\Basic\App;
-use Bloge\Basic\Theme;
-use Bloge\Basic\Content;
 
 $bloge = new App(__DIR__);
 

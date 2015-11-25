@@ -10,17 +10,17 @@ class App implements \Bloge\App
     protected $creator;
     
     /**
-     * @var \Bloge\Theme $theme
+     * @var \Bloge\Renderer $theme
      */
     protected $theme;
     
     /**
      * @param \Bloge\Content $creator
-     * @param \Bloge\Theme $theme
+     * @param \Bloge\Renderer $theme
      */
     public function __construct(
         \Bloge\Creator $creator, 
-        \Bloge\Theme $theme
+        \Bloge\Renderer $theme
     ) {
         $this->creator = $creator;
         $this->theme = $theme;

@@ -3,7 +3,7 @@
 use Bloge\Basic\App;
 use Bloge\Basic\Content;
 use Bloge\Basic\Creator;
-use Bloge\Basic\Theme;
+use Bloge\Basic\Renderer;
 
 class AppTest extends TestCase
 {
@@ -11,7 +11,7 @@ class AppTest extends TestCase
     {
         return new App(
             new Creator(new Content(CONTENT_DIR)),
-            new Theme(THEME_DIR)
+            new Renderer(THEME_DIR)
         );
     }
     
