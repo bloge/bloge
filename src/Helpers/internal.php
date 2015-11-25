@@ -52,16 +52,11 @@ function isFileHidden($file) {
 }
 
 /**
- * @param string $path
- * @param string $ext
- * @return string
+ * @param string $file
+ * @return bool
  */
-function replaceExtension($path, $ext) {
-    extract(pathinfo($path));
-    
-    $dirname = $dirname === '.' ? '' : $dirname;
-    
-    return ltrim("$dirname/$filename.$ext", '/');
+function hasExtension($file) {
+    return pathinfo($file, PATHINFO_EXTENSION) !== '';
 }
 
 /**
@@ -87,12 +82,7 @@ function expandPath($path, $basepath = '') {
  * @return string
  */
 function globPath($file) {
-    $dot = strrpos($file, '.');
-    $new = $dot !== false 
-        ? substr($file, 0, $dot) 
-        : $file;
-    
-    return current(glob("$new.*")) ?: $file;
+    return current(glob("$file.*")) ?: $file;
 }
 
 /**

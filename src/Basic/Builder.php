@@ -36,7 +36,9 @@ class Builder implements \Bloge\Builder
         }
         
         foreach ($this->app->content()->browse() as $file) {
-            $name = \Bloge\replaceExtension($file, 'html');
+            $name = \Bloge\hasExtension($file) 
+                ? $file 
+                : "$file.html";
             
             if (strpos($name, 'index.html') === false) {
                 $name = str_replace('.html', '/index.html', $name);
