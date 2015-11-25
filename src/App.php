@@ -4,10 +4,7 @@ namespace Bloge;
 
 interface App 
 {
-    /**
-     * @return \Bloge\Creator
-     */
-    public function creator();
+    public function content();
     
     /**
      * @param string $route

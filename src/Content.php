@@ -6,12 +6,6 @@ interface Content
 {
     /**
      * @param string $file
-     * @return bool
-     */
-    public function has($file);
-    
-    /**
-     * @param string $file
      * @param array $data
      * @throws \Bloge\FileNotFoundException if file wasn't found
      * @return array

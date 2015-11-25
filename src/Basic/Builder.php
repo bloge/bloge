@@ -35,7 +35,7 @@ class Builder implements \Bloge\Builder
             throw new NotWritableException($destination);
         }
         
-        foreach ($this->app->creator()->browse() as $file) {
+        foreach ($this->app->content()->browse() as $file) {
             $name = \Bloge\replaceExtension($file, 'html');
             
             if (strpos($name, 'index.html') === false) {

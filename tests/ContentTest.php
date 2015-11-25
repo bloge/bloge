@@ -15,8 +15,7 @@ class ContentTest extends TestCase
                 [
                     'title' => 'hello', 
                     'content' => 'Hello!'
-                ], 
-                true
+                ]
             ],
             [
                 'project.php', 
@@ -30,8 +29,7 @@ Much projects, so awesome:
 * Doge meme
 * Dogescript
 '
-                ],
-                true
+                ]
             ]
         ];
     }
@@ -44,20 +42,9 @@ Much projects, so awesome:
         ];
     }
     
-    private function createContent()
+    private function content()
     {
         return new Content(CONTENT_DIR);
-    }
-    
-    /**
-     * @dataProvider data
-     */
-    public function testHas($file, $_, $expected)
-    {
-        $this->assertEquals(
-            $expected,
-            $this->createContent()->has($file)
-        );
     }
     
     /**
@@ -67,7 +54,7 @@ Much projects, so awesome:
     {
         $this->assertEquals(
             $expected, 
-            $this->createContent()->fetch($file)
+            $this->content()->fetch($file)
         );
     }
     
@@ -77,26 +64,14 @@ Much projects, so awesome:
      */
     public function testFailingFetch($file)
     {
-        $this->createContent()->fetch($file);
+        $this->content()->fetch($file);
     }
     
     public function testBrowse()
     {
         $this->assertEquals(
             Bloge\listFiles(CONTENT_DIR, CONTENT_DIR),
-            $this->createContent()->browse()
+            $this->content()->browse()
         );
-    }
-    
-    public function testBrowseMatchingHas()
-    {
-        $content = $this->createContent();
-        $result = true;
-        
-        foreach ($content->browse() as $file) {
-            $result = $result && $content->has($file);
-        }
-        
-        $this->assertTrue($result);
     }
 }

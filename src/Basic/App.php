@@ -5,9 +5,9 @@ namespace Bloge\Basic;
 class App implements \Bloge\App
 {
     /**
-     * @var \Bloge\Creator
+     * @var \Bloge\Content
      */
-    protected $creator;
+    protected $content;
     
     /**
      * @var \Bloge\Renderer $renderer
@@ -15,23 +15,23 @@ class App implements \Bloge\App
     protected $renderer;
     
     /**
-     * @param \Bloge\Content $creator
+     * @param \Bloge\Content $content
      * @param \Bloge\Renderer $renderer
      */
     public function __construct(
-        \Bloge\Creator $creator, 
+        \Bloge\Content $content, 
         \Bloge\Renderer $renderer
     ) {
-        $this->creator = $creator;
+        $this->content = $content;
         $this->renderer = $renderer;
     }
     
     /**
      * @{inheritDoc}
      */
-    public function creator()
+    public function content()
     {
-        return $this->creator;
+        return $this->content;
     }
     
     /**
@@ -39,7 +39,7 @@ class App implements \Bloge\App
      */
     public function render($route = '')
     {   
-        $data = $this->creator->fetch($route);
+        $data = $this->content->fetch($route);
         
         return $this->renderer->render('layout.php', $data);
     }

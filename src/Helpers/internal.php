@@ -29,7 +29,7 @@ function listFiles($directory, $basepath = '') {
 function getFiles(\Iterator $iterator, $basepath = '')
 {
     $files = [];
-    $length = strlen($basepath);
+    $length = strlen($basepath) + 1;
     
     foreach ($iterator as $file) {
         if (!$file->isFile()) continue;
@@ -50,11 +50,13 @@ function isFileHidden($file) {
 
 /**
  * @param string $path
- * @param string $extension
+ * @param string $ext
  * @return string
  */
 function replaceExtension($path, $ext) {
     extract(pathinfo($path));
+    
+    $dirname = $dirname === '.' ? '' : $dirname;
     
     return ltrim("$dirname/$filename.$ext", '/');
 }

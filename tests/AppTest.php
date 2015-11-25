@@ -2,7 +2,6 @@
 
 use Bloge\Basic\App;
 use Bloge\Basic\Content;
-use Bloge\Basic\Creator;
 use Bloge\Basic\Renderer;
 
 class AppTest extends TestCase
@@ -10,7 +9,7 @@ class AppTest extends TestCase
     private function createApp()
     {
         return new App(
-            new Creator(new Content(CONTENT_DIR)),
+            new Content(CONTENT_DIR),
             new Renderer(THEME_DIR)
         );
     }

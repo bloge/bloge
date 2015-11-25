@@ -23,16 +23,8 @@ class Content implements \Bloge\Content
      * @param string $path
      * @return string
      */
-    public function path($path = '') {
+    protected function path($path = '') {
         return "{$this->path}/$path";
-    }
-    
-    /**
-     * @{inheritDoc}
-     */
-    public function has($file)
-    {
-        return is_file($this->path($file));
     }
     
     /**
@@ -40,7 +32,7 @@ class Content implements \Bloge\Content
      */
     public function fetch($file, array $data = [])
     {
-        if (!$this->has($file)) {
+        if (!is_file($this->path($file))) {
             throw new FileNotFoundException($file, $this->path);
         }
         
@@ -53,8 +45,7 @@ class Content implements \Bloge\Content
     }
     
     /**
-     * @param string $directory
-     * @return array
+     * @{inheritDoc}
      */
     public function browse($directory = '')
     {
