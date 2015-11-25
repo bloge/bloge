@@ -37,10 +37,6 @@ class Filter implements \Bloge\Filter
      */
     public function filterItem($item)
     {
-        foreach ($this->filters as $filter) {
-            $item = $filter($item);
-        }
-        
-        return $item;
+        return current($this->filter([$item]));
     }
 }
