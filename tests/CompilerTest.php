@@ -1,15 +1,15 @@
 <?php
 
 use Bloge\Basic\App;
-use Bloge\Basic\Builder;
+use Bloge\Basic\Compiler;
 use Bloge\Basic\Content;
 use Bloge\Basic\Renderer;
 
-class BuilderTest extends TestCase
+class CompilerTest extends TestCase
 {
-    private function builder()
+    private function compiler()
     {
-        return new Builder(
+        return new Compiler(
             new App(
                 new Content(CONTENT_DIR),
                 new Renderer(THEME_DIR)
@@ -19,10 +19,10 @@ class BuilderTest extends TestCase
     
     public function testBuild()
     {
-        $this->builder()->build(BUILD_DIR);
+        $this->compiler()->build(BUILD_DIR);
         $this->assertTrue(
             count(scandir(BUILD_DIR)) > 2, 
-            'Builder could not build website!'
+            'Compiler could not build website!'
         );
     }
     
@@ -31,7 +31,7 @@ class BuilderTest extends TestCase
      */
     public function testNonWritableBuild()
     {
-        $this->builder()->build(MAIN_DIR . '/non_writable');
+        $this->compiler()->build(MAIN_DIR . '/non_writable');
     }
     
     /**
@@ -39,6 +39,6 @@ class BuilderTest extends TestCase
      */
     public function testNonDirectoryBuild()
     {
-        $this->builder()->build(MAIN_DIR . '/content.php');
+        $this->compiler()->build(MAIN_DIR . '/content.php');
     }
 }

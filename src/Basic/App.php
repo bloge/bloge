@@ -37,7 +37,7 @@ class App implements \Bloge\App
     /**
      * @{inheritDoc}
      */
-    public function render($route = '')
+    public function render($route, array $data = [])
     {   
         $data = $this->content->fetch($route);
         

@@ -5,7 +5,7 @@ namespace Bloge\Basic;
 use Bloge\NotDirectoryException;
 use Bloge\NotWritableException;
 
-class Builder implements \Bloge\Builder
+class Compiler implements \Bloge\Compiler
 {
     /**
      * @var \Bloge\App $app

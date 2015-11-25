@@ -15,8 +15,7 @@ P.S.: temporary upload on bitbucket
 ## Features
 
 * Simple and flexible API
-* Dynamic/static modes
-* Content processing, filtering and file/data mapping
+* 
 * Custom 
 
 ## Get started

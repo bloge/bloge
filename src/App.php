@@ -11,7 +11,8 @@ interface App
     
     /**
      * @param string $route
+     * @param array $data
      * @return string
      */
-    public function render($route = '');
+    public function render($route, array $data = []);
 }

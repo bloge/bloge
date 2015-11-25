@@ -2,7 +2,7 @@
 
 namespace Bloge;
 
-interface Builder
+interface Compiler
 {
     /**
      * @param \Bloge\App;
