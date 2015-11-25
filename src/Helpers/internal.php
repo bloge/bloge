@@ -65,8 +65,7 @@ function replaceExtension($path, $ext) {
  * @param string $path
  * @param string $basepath
  */
-function expandPath($path, $basepath = '')
-{
+function expandPath($path, $basepath = '') {
     $frags = explode('/', trim($path, '/'));
     $path  = rtrim($basepath, '/');
     
@@ -81,11 +80,17 @@ function expandPath($path, $basepath = '')
 }
 
 /**
- * @param array $data
- * @param callable $callback
+ * @param string $file
+ * @return string
  */
-function array_map($data, callable $callback) {
-    return \array_map($callback, $data);
+function globPath($file) {
+    $dot = strrpos($file, '.');
+    
+    if ($dot !== false) {
+        $file = substr($file, 0, $dot);
+    }
+    
+    return current(glob("$file.*"));
 }
 
 /**
