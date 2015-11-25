@@ -4,6 +4,9 @@ namespace Bloge;
 
 interface App 
 {
+    /**
+     * @return \Bloge\Content
+     */
     public function content();
     
     /**

@@ -1,7 +1,9 @@
 <?php
 
+namespace Bloge;
+
 /**
- * array_filter wrapper for \Bloge\Creator::filter
+ * array_filter wrapper
  * 
  * @param callable $callback
  * @return callable
@@ -13,7 +15,7 @@ function filter (callable $callback) {
 }
 
 /**
- * array_mapper wrapper for \Bloge\Creator::filter
+ * array_mapper wrapper
  * 
  * @param callable $callback
  * @return callable
@@ -25,7 +27,7 @@ function map (callable $callback) {
 }
 
 /**
- * Inject value into content (\Bloge\Creator::process)
+ * Inject value into content
  * 
  * @param string $key
  * @param mixed $value
