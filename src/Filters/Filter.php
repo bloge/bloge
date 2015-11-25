@@ -13,19 +13,6 @@ class Filter implements \Bloge\Filter
     protected $filters = [];
     
     /**
-     * @var callable $function
-     */
-    protected $function;
-    
-    /**
-     * @param callable $function
-     */
-    public function __construct(callable $function)
-    {
-        $this->function = $function;
-    }
-    
-    /**
      * @param callable $filter
      */
     public function add(callable $filter)
@@ -38,10 +25,8 @@ class Filter implements \Bloge\Filter
      */
     public function filter(array $data)
     {
-        $function = $this->function;
-        
         foreach ($this->filters as $filter) {
-            $data = $function($data, $filter);
+            $data = array_map($filter, $data);
         }
         
         return $data;

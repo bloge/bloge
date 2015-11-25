@@ -9,11 +9,11 @@ class FilterTest extends TestCase
         return [
             [
                 ['/abc/', '/def/', '/foo.php'],
-                ['/abc/', '/def/']
+                ['/abc/', '/def/', false]
             ],
             [
                 ['/hello_world/', '/.htaccess'],
-                ['/hello_world/']
+                ['/hello_world/', false]
             ]
         ];
     }
@@ -22,15 +22,15 @@ class FilterTest extends TestCase
     {
         return [
             ['/filter.php', false],
-            ['/filter/', true]
+            ['/filter/', '/filter/']
         ];
     }
     
     private function filter()
     {
-        $filter = new Filter('array_filter');
+        $filter = new Filter;
         $filter->add(function ($value) {
-            return strpos($value, '.') === false;
+            return strpos($value, '.') === false ? $value : false;
         });
         
         return $filter;

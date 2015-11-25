@@ -22,6 +22,18 @@ class DataMapperTest extends TestCase
                         'title' => 'feed.xml'
                     ]
                 ]
+            ],
+            [
+                [
+                    '/404.html' => [],
+                    '/feed.xml' => []
+                ],
+                [
+                    '/404.html' => [
+                        'title' => '404'
+                    ],
+                    '/feed.xml' => []
+                ]
             ]
         ];
     }

@@ -34,7 +34,10 @@ function getFiles(\Iterator $iterator, $basepath = '')
     foreach ($iterator as $file) {
         if (!$file->isFile()) continue;
         
-        $files[] = substr($file, $length);
+        $file = substr($file, $length);
+        $dot = strrpos($file, '.');
+        
+        $files[] = $dot === false ? $file : substr($file, 0, $dot);
     }
     
     return $files;
@@ -85,12 +88,11 @@ function expandPath($path, $basepath = '') {
  */
 function globPath($file) {
     $dot = strrpos($file, '.');
+    $new = $dot !== false 
+        ? substr($file, 0, $dot) 
+        : $file;
     
-    if ($dot !== false) {
-        $file = substr($file, 0, $dot);
-    }
-    
-    return current(glob("$file.*"));
+    return current(glob("$new.*")) ?: $file;
 }
 
 /**
