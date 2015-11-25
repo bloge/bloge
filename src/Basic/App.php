@@ -10,20 +10,20 @@ class App implements \Bloge\App
     protected $creator;
     
     /**
-     * @var \Bloge\Renderer $theme
+     * @var \Bloge\Renderer $renderer
      */
-    protected $theme;
+    protected $renderer;
     
     /**
      * @param \Bloge\Content $creator
-     * @param \Bloge\Renderer $theme
+     * @param \Bloge\Renderer $renderer
      */
     public function __construct(
         \Bloge\Creator $creator, 
-        \Bloge\Renderer $theme
+        \Bloge\Renderer $renderer
     ) {
         $this->creator = $creator;
-        $this->theme = $theme;
+        $this->renderer = $renderer;
     }
     
     /**
@@ -41,6 +41,6 @@ class App implements \Bloge\App
     {   
         $data = $this->creator->fetch($route);
         
-        return $this->theme->render('layout.php', $data);
+        return $this->renderer->render('layout.php', $data);
     }
 }

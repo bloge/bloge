@@ -25,7 +25,9 @@ class Renderer implements \Bloge\Renderer
     }
     
     /**
-     * @{inheritDoc} 
+     * @param string $view
+     * @param array $data
+     * @return string
      */
     public function partial($view, array $data = [])
     {
