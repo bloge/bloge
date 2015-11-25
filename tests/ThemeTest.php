@@ -21,7 +21,7 @@ class RendererTest extends TestCase
         ];
     }
     
-    private function createRenderer()
+    private function renderer()
     {
         return new Renderer(THEME_DIR);
     }
@@ -33,7 +33,7 @@ class RendererTest extends TestCase
     {
         $this->assertEquals(
             $expected, 
-            $this->createRenderer()->partial($file)
+            $this->renderer()->partial($file)
         );
     }
     
@@ -43,14 +43,14 @@ class RendererTest extends TestCase
      */
     public function testFailingPartial($file)
     {
-        $this->createRenderer()->partial($file);
+        $this->renderer()->partial($file);
     }
     
     public function testRender()
     {
         $this->assertEquals(
             "Doge's bloge \nTitle \nContent \nDoge (c) 2015",
-            $this->createRenderer()->render('layout.php', [
+            $this->renderer()->render('layout.php', [
                 'title'   => 'Title',
                 'content' => 'Content'
             ])

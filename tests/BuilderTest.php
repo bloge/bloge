@@ -22,7 +22,7 @@ class BuilderTest extends TestCase
         $this->builder()->build(BUILD_DIR);
         $this->assertTrue(
             count(scandir(BUILD_DIR)) > 2, 
-            'App could not build website!'
+            'Builder could not build website!'
         );
     }
     

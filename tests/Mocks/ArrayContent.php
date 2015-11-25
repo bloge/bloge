@@ -26,17 +26,9 @@ class ArrayContent implements Content
     /**
      * @{inheritDoc}
      */
-    public function has($file)
-    {
-        return isset($this->content[$file]);
-    }
-    
-    /**
-     * @{inheritDoc}
-     */
     public function fetch($file, array $data = [])
     {
-        return $this->has($file) ? $this->content[$file] : [];
+        return isset($this->content[$file]) ? $this->content[$file] : [];
     }
     
     /**

@@ -6,7 +6,7 @@ use Bloge\Basic\Renderer;
 
 class AppTest extends TestCase
 {
-    private function createApp()
+    private function app()
     {
         return new App(
             new Content(CONTENT_DIR),
@@ -18,7 +18,7 @@ class AppTest extends TestCase
     {
         $this->assertEquals(
             "Doge's bloge \nhello \nHello! \nDoge (c) 2015",
-            $this->createApp()->render('index.php')
+            $this->app()->render('index.php')
         );
     }
 }
