@@ -38,12 +38,7 @@ class Content implements \Bloge\Content
             throw new FileNotFoundException($file, $this->path);
         }
         
-        ob_start();
-        
-        $data = (require $path) ?: [];
-        $data['content'] = ob_get_clean();
-        
-        return $data;
+        return \Bloge\renderData($path, $data);
     }
     
     /**

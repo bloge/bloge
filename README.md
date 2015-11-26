@@ -15,8 +15,6 @@ P.S.: temporary upload on bitbucket
 ## Features
 
 * Simple and flexible API
-* 
-* Custom 
 
 ## Get started
 

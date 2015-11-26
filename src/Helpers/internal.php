@@ -98,3 +98,19 @@ function render($__view__, array $__data__) {
     
     return ob_get_clean();
 }
+
+/**
+ * @param string $__view__
+ * @param array $__data__
+ * @return string
+ */
+function renderData($__view__, array $__data__) {
+    ob_start();
+    
+    extract($__data__);
+    
+    $data = (require $__view__) ?: [];
+    $data['content'] = ob_get_clean();
+    
+    return $data;
+}
