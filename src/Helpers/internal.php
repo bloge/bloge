@@ -60,6 +60,15 @@ function hasExtension($file) {
 }
 
 /**
+ * @param string $string
+ * @param string $needle
+ * @return string
+ */
+function endsWith($string, $needle) {
+    return strrpos($string, $needle) === strlen($string) - strlen($needle);
+}
+
+/**
  * @param string $path
  * @param string $basepath
  */

@@ -52,7 +52,7 @@ class Compiler implements \Bloge\Compiler
      */
     private function processFilePath($file)
     {
-        if (strrpos($file, 'index') === strlen($file) - strlen('index')) {
+        if (\Bloge\endsWith($file, 'index')) {
             $file .= '.html';
         }
         

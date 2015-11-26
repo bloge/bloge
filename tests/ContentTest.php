@@ -74,4 +74,15 @@ Much projects, so awesome:
             $this->content()->browse()
         );
     }
+    
+    public function testBrowseMatchingFetch()
+    {
+        $content = $this->content();
+        
+        foreach ($content->browse() as $file) {
+            $content->fetch($file);
+        }
+        
+        $this->assertTrue(true);
+    }
 }
