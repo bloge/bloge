@@ -98,7 +98,7 @@ class DispatcherTest extends TestCase
     {
         $dispatcher = new Dispatcher;
         // Just to cover another method
-        $dispatcher->routes($routes);
+        $dispatcher->fill($routes);
             
         foreach ($maps as $key => $value) {
             $dispatcher->map($key, $value);

@@ -18,6 +18,9 @@ class Wrapper implements \Bloge\Content
         $this->dispatcher = new Dispatcher;
     }
     
+    /**
+     * @return \Bloge\Dispatcher
+     */
     public function dispatcher()
     {
         return $this->dispatcher;
@@ -28,11 +31,13 @@ class Wrapper implements \Bloge\Content
      */
     public function fetch($file, array $data = [])
     {
+        $content = $this->content;
+        
         $file = $this->dispatcher
-            ->routes($this->content->browse())
+            ->fill($content->browse())
             ->dispatch($file);
         
-        return $this->content->fetch($file, $data);
+        return $content->fetch($file, $data);
     }
     
     /**
@@ -40,8 +45,10 @@ class Wrapper implements \Bloge\Content
      */
     public function browse($directory = '')
     {
-        return $this->dispatcher
-                ->routes($this->content->browse($directory))
-                ->compile();
+        return array_keys(
+            $this->dispatcher
+                ->fill($this->content->browse($directory))
+                ->compile()
+        );
     }
 }

@@ -33,16 +33,6 @@ class Dispatcher implements \Bloge\Dispatcher
     }
     
     /**
-     * @param array $routes 
-     */
-    public function routes(array $routes)
-    {
-        $this->routes = $routes;
-        
-        return $this;
-    }
-    
-    /**
      * @param string $from
      * @param string $to
      */
@@ -70,6 +60,16 @@ class Dispatcher implements \Bloge\Dispatcher
     public function map($from, $to)
     {
         $this->maps[$from] = $to;
+        
+        return $this;
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function fill(array $routes)
+    {
+        $this->routes = $routes;
         
         return $this;
     }
