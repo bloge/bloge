@@ -31,7 +31,7 @@ class App implements \Bloge\App
      */
     public function content()
     {
-        return $this->content;
+        return $this->content->browse();
     }
     
     /**
