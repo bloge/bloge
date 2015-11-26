@@ -22,7 +22,7 @@ class App implements \Bloge\App
         \Bloge\Content $content, 
         \Bloge\Renderer $renderer
     ) {
-        $this->content = $content;
+        $this->content = new Wrapper($content);
         $this->renderer = $renderer;
     }
     
@@ -41,6 +41,6 @@ class App implements \Bloge\App
     {   
         $data = $this->content->fetch($route);
         
-        return $this->renderer->render('layout.php', $data);
+        return $this->renderer->render($data);
     }
 }

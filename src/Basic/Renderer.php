@@ -43,8 +43,12 @@ class Renderer implements \Bloge\Renderer
     /**
      * @{inheritDoc} 
      */
-    public function render($layout, array $data = [])
+    public function render(array $data = [])
     {
+        $layout = isset($data['layout']) 
+            ? $data['layout'] 
+            : 'layout.php';
+        
         $data['theme'] = $this;
         $this->data = $data;
         

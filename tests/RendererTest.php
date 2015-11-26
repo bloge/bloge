@@ -50,7 +50,7 @@ class RendererTest extends TestCase
     {
         $this->assertEquals(
             "Doge's bloge \nTitle \nContent \nDoge (c) 2015",
-            $this->renderer()->render('layout.php', [
+            $this->renderer()->render([
                 'title'   => 'Title',
                 'content' => 'Content'
             ])
