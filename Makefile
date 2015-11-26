@@ -1,3 +1,6 @@
+TEST_FOLDERS=tests/resources/{build,non_writable}
+NON_WRITABLE=tests/resources/non_writable
+
 # Update 
 update:
 	composer update
@@ -16,8 +19,8 @@ cover: clean create
 
 # Folder manipulation
 clean:
-	rm -rf tests/resources/{build,non_writable}
+	rm -rf $(TEST_FOLDERS)
 
 create:
-	mkdir tests/resources/{build,non_writable}
-	chmod -R 555 tests/resources/non_writable
+	mkdir $(TEST_FOLDERS)
+	chmod -R 555 $(NON_WRITABLE)

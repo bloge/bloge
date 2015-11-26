@@ -7,4 +7,5 @@
 
 # Tests
 /tests/resources/build
+/tests/resources/non_writable
 /sample

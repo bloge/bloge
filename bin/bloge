@@ -1,14 +1,12 @@
+#!/usr/bin/env php
 <?php
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-use Bloge\Basic\Builder;
-
-$file = $_SERVER['argv'][1];
-$file = realpath($file);
+$file = realpath($_SERVER['argv'][1]);
 $destination = $_SERVER['argv'][2];
 
 $app = require $file;
 
-$builder = new Builder($app);
+$builder = new Bloge\Basic\Compiler($app);
 $builder->build($destination);

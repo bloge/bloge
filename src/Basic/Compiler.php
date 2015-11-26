@@ -25,8 +25,6 @@ class Compiler implements \Bloge\Compiler
      */
     public function build($destination)
     {
-        $destination = chop($destination, '/');
-        
         if (!is_dir($destination)) {
             throw new NotDirectoryException($destination);
         }
@@ -35,17 +33,33 @@ class Compiler implements \Bloge\Compiler
             throw new NotWritableException($destination);
         }
         
-        foreach ($this->app->content()->browse() as $file) {
-            $name = \Bloge\hasExtension($file) 
-                ? $file 
-                : "$file.html";
-            
-            if (strpos($name, 'index.html') === false) {
-                $name = str_replace('.html', '/index.html', $name);
-            }
+        $app = $this->app;
+        $content = $app->content()->browse();
+        $destination = chop($destination, '/');
+        
+        foreach ($content as $file) {
+            $name = $this->processFilePath(chop($file, '/'));
             
             \Bloge\expandPath($name, $destination);
-            file_put_contents("$destination/$name", $this->app->render($file));
+            
+            file_put_contents("$destination/$name", $app->render($file));
         }
+    }
+    
+    /**
+     * @param string $file
+     * @return string
+     */
+    private function processFilePath($file)
+    {
+        if (strrpos($file, 'index') === strlen($file) - strlen('index')) {
+            $file .= '.html';
+        }
+        
+        if (!\Bloge\hasExtension($file)) {
+            $file .= '/index.html';
+        }
+        
+        return $file;
     }
 }
