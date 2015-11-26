@@ -18,7 +18,7 @@ class AppTest extends TestCase
     {
         $this->assertEquals(
             "Doge's bloge \nhello \nHello! \nDoge (c) 2015",
-            $this->app()->render('index.php')
+            $this->app()->render('index')
         );
     }
 }

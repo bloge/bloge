@@ -38,6 +38,8 @@ class Dispatcher implements \Bloge\Dispatcher
     public function routes(array $routes)
     {
         $this->routes = $routes;
+        
+        return $this;
     }
     
     /**
@@ -47,21 +49,18 @@ class Dispatcher implements \Bloge\Dispatcher
     public function alias($from, $to)
     {
         $this->aliases[$from] = $to;
+        
+        return $this;
     }
     
     /**
-     * @param string|callable $route
+     * @param string|callable $ignore
      */
-    public function ignore($route)
+    public function ignore($ignore)
     {
-        if (is_callable($route)) {
-            foreach (array_filter($this->routes, $route) as $route) {
-                $this->ignores[$route] = '';
-            }
-        }
-        else {
-            $this->ignores[$route] = '';
-        }
+        $this->ignores[] = $ignore;
+        
+        return $this;
     }
     
     /**
@@ -71,6 +70,8 @@ class Dispatcher implements \Bloge\Dispatcher
     public function map($from, $to)
     {
         $this->maps[$from] = $to;
+        
+        return $this;
     }
     
     /**
@@ -87,9 +88,16 @@ class Dispatcher implements \Bloge\Dispatcher
             $map[$to] = $from;
         }
         
-        $map = array_filter($map, function ($route) {
-            return !isset($this->ignores[$route]);
-        });
+        foreach ($this->ignores as $ignore) {
+            if (is_callable($ignore)) {
+                $map = array_filter($map, function ($route) use ($ignore) {
+                    return !$ignore($route);
+                });
+            }
+            else if (isset($map[$ignore])) {
+                unset($map[$ignore]);
+            }
+        }
         
         foreach ($this->maps as $from => $to) {
             unset($map[$from]);

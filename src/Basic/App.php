@@ -34,11 +34,16 @@ class App implements \Bloge\App
         return $this->content->browse($directory);
     }
     
+    public function wrapper()
+    {
+        return $this->content;
+    }
+    
     /**
      * @{inheritDoc}
      */
     public function render($route, array $data = [])
-    {   
+    {
         $data = $this->content->fetch($route);
         
         return $this->renderer->render($data);
