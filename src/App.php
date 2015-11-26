@@ -5,9 +5,10 @@ namespace Bloge;
 interface App 
 {
     /**
+     * @param string $directory
      * @return array
      */
-    public function content();
+    public function content($directory = '');
     
     /**
      * @param string $route

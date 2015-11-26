@@ -29,9 +29,9 @@ class App implements \Bloge\App
     /**
      * @{inheritDoc}
      */
-    public function content()
+    public function content($directory = '')
     {
-        return $this->content->browse();
+        return $this->content->browse($directory);
     }
     
     /**
