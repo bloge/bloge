@@ -1,4 +1,7 @@
 {
+    "name": "bloge/bloge",
+    "description": "Ultra light, flexible and easy-to-use static website generator",
+    "version": "0.0.0",
     "autoload": {
         "psr-4": {
             "Bloge\\": "src/"
