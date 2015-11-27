@@ -15,7 +15,13 @@ class Wrapper implements \Bloge\Content
     protected $dispatcher;
     
     /**
+     * @var \Bloge\Processor $processor
+     */
+    protected $processor;
+    
+    /**
      * @param \Bloge\Content $content
+     * @param \Bloge\Dispatcher $content
      */
     public function __construct(
         \Bloge\Content $content,
@@ -23,6 +29,7 @@ class Wrapper implements \Bloge\Content
     ) {
         $this->content = $content;
         $this->dispatcher = $dispatcher;
+        $this->processor = new Processor;
         
         $dispatcher->fill($content->browse());
     }
@@ -36,6 +43,14 @@ class Wrapper implements \Bloge\Content
     }
     
     /**
+     * @return \Bloge\Processor
+     */
+    public function processor()
+    {
+        return $this->processor;
+    }
+    
+    /**
      * @{inheritDoc}
      */
     public function fetch($file, array $data = [])
@@ -46,7 +61,9 @@ class Wrapper implements \Bloge\Content
             ->fill($content->browse())
             ->dispatch($file);
         
-        return $content->fetch($file, $data);
+        $data = $content->fetch($file, $data);
+        
+        return $this->processor->process($file, $data);
     }
     
     /**

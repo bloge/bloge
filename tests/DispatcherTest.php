@@ -89,6 +89,20 @@ class DispatcherTest extends TestCase
                     'posts' => 'blog',
                     'projects' => 'projects'
                 ]
+            ],
+            [
+                ['index', '404', 'projects'],
+                [
+                    [
+                        'index' => 'welcome',
+                        '404' => '404.html'
+                    ]
+                ],
+                [
+                    'welcome' => 'index',
+                    '404.html' => '404',
+                    'projects' => 'projects'
+                ]
             ]
         ];
     }

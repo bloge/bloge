@@ -118,7 +118,9 @@ function renderData($__view__, array $__data__) {
     
     extract($__data__);
     
-    $data = (require $__view__) ?: [];
+    $data = require $__view__;
+    $data = is_array($data) ? $data : [];
+    
     $data['content'] = ob_get_clean();
     
     return $data;

@@ -15,6 +15,8 @@ class Processor implements \Bloge\Processor
     public function add(callable $callback)
     {
         $this->processors[] = $callback;
+        
+        return $this;
     }
     
     /**

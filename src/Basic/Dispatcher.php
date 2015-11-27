@@ -65,7 +65,9 @@ class Dispatcher implements \Bloge\Dispatcher
     public function map($from, $to = '')
     {
         if (is_array($from)) {
-            $this->maps = array_merge($this->maps, $from);
+            foreach ($from as $key => $value) {
+                $this->maps[$key] = $value;
+            }
         }
         else {
             $this->maps[$from] = $to;
