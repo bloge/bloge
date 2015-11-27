@@ -34,6 +34,9 @@ class App implements \Bloge\App
         return $this->content->browse($directory);
     }
     
+    /**
+     * @return \Bloge\Basic\Wrapper
+     */
     public function wrapper()
     {
         return $this->content;
