@@ -1,7 +1,6 @@
 <?php
 
-use Bloge\Basic\Renderer;
-use Bloge\Renderer as IRenderer;
+use Bloge\Renderers\Renderer;
 
 class RendererTest extends TestCase
 {
@@ -17,7 +16,7 @@ class RendererTest extends TestCase
     {
         return [
             ['foobar.php'],
-            ['aakbar.php']
+            ['foobaz.php']
         ];
     }
     

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Renderers;
 
 use Bloge\NotFoundException;
 

@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Basic\FrontContent;
+use Bloge\Content\FrontContent;
 
 class FrontContentTest extends TestCase
 {

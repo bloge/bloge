@@ -1,11 +1,13 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Compilers;
 
+use Bloge\App;
+use Bloge\Compiler;
 use Bloge\NotDirectoryException;
 use Bloge\NotWritableException;
 
-class Compiler implements \Bloge\Compiler
+class HTMLCompiler implements Compiler
 {
     /**
      * @var \Bloge\App $app
@@ -15,7 +17,7 @@ class Compiler implements \Bloge\Compiler
     /**
      * @param \Bloge\App $app
      */
-    public function __construct(\Bloge\App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
     }

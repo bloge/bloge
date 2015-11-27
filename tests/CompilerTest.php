@@ -1,17 +1,17 @@
 <?php
 
-use Bloge\Basic\App;
-use Bloge\Basic\Compiler;
-use Bloge\Basic\Content;
-use Bloge\Basic\Renderer;
+use Bloge\Apps\App;
+use Bloge\Compilers\HTMLCompiler;
+use Bloge\Content\BasicContent;
+use Bloge\Renderers\Renderer;
 
 class CompilerTest extends TestCase
 {
     private function compiler()
     {
-        return new Compiler(
+        return new HTMLCompiler(
             new App(
-                new Content(CONTENT_DIR),
+                new BasicContent(CONTENT_DIR),
                 new Renderer(THEME_DIR)
             )
         );

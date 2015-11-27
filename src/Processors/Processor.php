@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Processors;
 
 class Processor implements \Bloge\Processor
 {

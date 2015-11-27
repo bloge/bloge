@@ -1,10 +1,16 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Content;
 
+use Bloge\Content;
 use Bloge\NotFoundException;
 
-class Content implements \Bloge\Content
+/**
+ * Basic content
+ * 
+ * @package Bloge
+ */
+class BasicContent implements Content
 {
     /**
      * @var string $path

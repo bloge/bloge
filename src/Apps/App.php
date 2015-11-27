@@ -1,6 +1,9 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Apps;
+
+use Bloge\Dispatchers\Dispatcher;
+use Bloge\Processors\Processor;
 
 class App implements \Bloge\App
 {

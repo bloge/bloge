@@ -8,5 +8,5 @@ $destination = $_SERVER['argv'][2];
 
 $app = require $file;
 
-$builder = new Bloge\Basic\Compiler($app);
+$builder = new Bloge\Compilers\HTMLCompiler($app);
 $builder->build($destination);

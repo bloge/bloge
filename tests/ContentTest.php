@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Basic\Content;
+use Bloge\Content\BasicContent;
 
 /**
  * @todo cleanup data() dataProvider
@@ -55,7 +55,7 @@ Description'
     
     private function content()
     {
-        return new Content(CONTENT_DIR);
+        return new BasicContent(CONTENT_DIR);
     }
     
     /**

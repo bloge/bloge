@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Basic\Dispatcher;
+use Bloge\Dispatchers\Dispatcher;
 
 class DispatcherTest extends TestCase
 {

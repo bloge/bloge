@@ -1,10 +1,10 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Content;
 
 use Bloge\NotFoundException;
 
-class FrontContent extends Content
+class FrontContent extends BasicContent
 {
     /**
      * @const string SEPARATOR Header and content separator

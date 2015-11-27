@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Basic\Processor;
+use Bloge\Processors\Processor;
 
 class ProcessorTest extends TestCase
 {

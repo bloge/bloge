@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge\Basic;
+namespace Bloge\Dispatchers;
 
 class Dispatcher implements \Bloge\Dispatcher
 {
