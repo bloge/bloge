@@ -76,6 +76,11 @@ class App implements \Bloge\App
         return $this->preProcessor;
     }
     
+    public function content()
+    {
+        return $this->content;
+    }
+    
     /**
      * @{inheritDoc}
      */
