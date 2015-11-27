@@ -89,11 +89,9 @@ class App implements \Bloge\App
      */
     public function browse($directory = '')
     {
-        $content = $this->content;
-        
         return array_keys(
             $this->dispatcher
-                ->fill($content->browse($directory))
+                ->fill($this->content->browse($directory))
                 ->compile()
         );
     }

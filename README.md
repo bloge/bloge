@@ -21,16 +21,14 @@ Simple website with Bloge:
 
 // app.php
 
-use Bloge\Basic\App;
-use Bloge\Basic\Content;
-use Bloge\Basic\Renderer;
+use Bloge\Apps\BasicApp;
+use Bloge\Content\BasicContent;
+use Bloge\Renderers\Renderer;
 
-$app = new App(
+return new App(
     new Content(__DIR__ . '/content'),
     new Renderer(__DIR__ . '/theme')
 );
-
-return $app;
 
 // index.php
 

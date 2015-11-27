@@ -51,6 +51,6 @@ class BasicApp implements App
     {
         $data = $this->content->fetch($route, $data);
         
-        return $this->renderer->render($route, $data);
+        return $this->renderer->render($data);
     }
 }

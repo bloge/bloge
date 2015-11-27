@@ -4,6 +4,13 @@ namespace Bloge\Content;
 
 use Bloge\NotFoundException;
 
+/**
+ * Front matter content
+ * 
+ * This content 
+ * 
+ * @package Bloge
+ */
 class FrontContent extends BasicContent
 {
     /**
@@ -34,8 +41,7 @@ class FrontContent extends BasicContent
         $content = file_get_contents($file);
         
         $separator = strpos($content, self::SEPARATOR);
-        $header = mb_substr($content, 0, $separator);
-        
+        $header  = mb_substr($content, 0, $separator);
         $content = mb_substr($content, $separator + strlen(self::SEPARATOR));
         
         return compact('header', 'content');

@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Apps\App;
+use Bloge\Apps\BasicApp;
 use Bloge\Content\BasicContent;
 use Bloge\Renderers\Renderer;
 
@@ -8,7 +8,7 @@ class AppTest extends TestCase
 {
     private function app()
     {
-        return new App(
+        return new BasicApp(
             new BasicContent(CONTENT_DIR),
             new Renderer(THEME_DIR)
         );
