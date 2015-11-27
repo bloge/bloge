@@ -13,7 +13,6 @@
     "autoload-dev": {
         "files": [
             "tests/TestCase.php",
-            "tests/ContentTestCase.php",
             "tests/Mocks/ArrayContent.php"
         ]
     },
