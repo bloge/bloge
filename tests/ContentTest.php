@@ -60,7 +60,7 @@ Much projects, so awesome:
     
     /**
      * @dataProvider failingData
-     * @expectedException \Bloge\FileNotFoundException
+     * @expectedException \Bloge\NotFoundException
      */
     public function testFailingFetch($file)
     {

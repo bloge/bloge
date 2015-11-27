@@ -2,7 +2,7 @@
 
 namespace Bloge\Basic;
 
-use Bloge\FileNotFoundException;
+use Bloge\NotFoundException;
 
 class Content implements \Bloge\Content
 {
@@ -35,7 +35,7 @@ class Content implements \Bloge\Content
         $path = \Bloge\globPath($this->path($file));
         
         if (!is_file($path)) {
-            throw new FileNotFoundException($file, $this->path);
+            throw new NotFoundException($file);
         }
         
         return \Bloge\renderData($path, $data);

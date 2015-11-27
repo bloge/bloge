@@ -39,7 +39,7 @@ class RendererTest extends TestCase
     
     /**
      * @dataProvider failingPartials
-     * @expectedException \Bloge\FileNotFoundException
+     * @expectedException \Bloge\NotFoundException
      */
     public function testFailingPartial($file)
     {

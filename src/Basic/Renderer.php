@@ -2,7 +2,7 @@
 
 namespace Bloge\Basic;
 
-use Bloge\FileNotFoundException;
+use Bloge\NotFoundException;
 
 class Renderer implements \Bloge\Renderer
 {
@@ -34,7 +34,7 @@ class Renderer implements \Bloge\Renderer
         $path = "{$this->path}/$view";
         
         if (!file_exists($path)) {
-            throw new FileNotFoundException($view, $this->path);
+            throw new NotFoundException($view);
         }
         
         return \Bloge\render($path, array_merge($this->data, $data));
