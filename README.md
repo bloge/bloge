@@ -16,36 +16,40 @@ P.S.: temporary upload on bitbucket
 
 Simple website with Bloge:
 
-    // app.php
-    
-    use Bloge\Basic\App;
-    use Bloge\Basic\Content;
-    use Bloge\Basic\Renderer;
-    
-    $app = new App(
-        new Content(__DIR__ . '/content'),
-        new Renderer(__DIR__ . '/theme')
-    );
-    
-    return $app;
-    
-    // index.php
-    
-    require 'vendor/autoload.php';
-    
-    $app = require 'app.php';
-    
-    try {
-        echo $app->render($_GET['route']);
-    } catch (Bloge\FileNotFoundException $e) {
-        echo $app->render('404');
-    }
+```php
+// app.php
+
+use Bloge\Basic\App;
+use Bloge\Basic\Content;
+use Bloge\Basic\Renderer;
+
+$app = new App(
+    new Content(__DIR__ . '/content'),
+    new Renderer(__DIR__ . '/theme')
+);
+
+return $app;
+
+// index.php
+
+require 'vendor/autoload.php';
+
+$app = require 'app.php';
+
+try {
+    echo $app->render($_GET['route']);
+} catch (Bloge\FileNotFoundException $e) {
+    echo $app->render('404');
+}
+```
     
 And to build it down to static HTML website:
 
-    $ mkdir build
-    
-    $ php vendor/bin/bloge app.php build
+```sh
+mkdir build
+
+php vendor/bin/bloge app.php build
+```
 
 ## Features
 
@@ -65,7 +69,9 @@ To start with Bloge you need:
 Next thing you want to do is to install `bloge/starter-pack` via composer 
 somewhere on webserver:
 
-    $ composer create-project bloge/starter-pack
+```sh
+composer create-project bloge/starter-pack
+```
 
 In current directory will be created Bloge starter pack website. You can 
 explore its source code and read manual provided by this starter pack.
