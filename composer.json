@@ -16,9 +16,7 @@
         ]
     },
     "require": {
-        "php": ">=5.4.0",
-        "erusev/parsedown": "^1.5",
-        "mustangostang/spyc": "*"
+        "php": ">=5.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
