@@ -8,7 +8,7 @@ interface App
      * @param string $directory
      * @return array
      */
-    public function content($directory = '');
+    public function browse($directory = '');
     
     /**
      * @param string $route

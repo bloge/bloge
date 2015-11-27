@@ -36,7 +36,7 @@ class Compiler implements \Bloge\Compiler
         $app = $this->app;
         $destination = chop($destination, '/');
         
-        foreach ($app->content() as $path) {
+        foreach ($app->browse() as $path) {
             $name = $this->processPath(chop($path, '/'));
             
             \Bloge\expandPath($name, $destination);

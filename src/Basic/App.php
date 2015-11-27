@@ -22,27 +22,34 @@ class App implements \Bloge\App
     /**
      * @var \Bloge\Processor
      */
-    protected $processor;
+    protected $postProcessor;
+    
+    /**
+     * @var \Bloge\Processor
+     */
+    protected $preProcessor;
     
     /**
      * @param \Bloge\Content $content
      * @param \Bloge\Renderer $renderer
      * @param \Bloge\Dispatcher $dispatcher
-     * @param \Bloge\Processor $processor
+     * @param \Bloge\Processor $postProcessor
+     * @param \Bloge\Processor $preProcessor
      */
     public function __construct(
         \Bloge\Content $content, 
         \Bloge\Renderer $renderer,
         \Bloge\Dispatcher $dispatcher = null,
-        \Bloge\Processor $processor = null
+        \Bloge\Processor $postProcessor = null,
+        \Bloge\Processor $preProcessor = null
     ) {
         $this->content  = $content;
         $this->renderer = $renderer;
         
         $this->dispatcher = $dispatcher ?: new Dispatcher;
-        $this->processor  = $processor ?: new Processor;
         
-        $this->dispatcher->fill($content->browse());
+        $this->postProcessor = $postProcessor ?: new Processor;
+        $this->preProcessor  = $preProcessor ?: new Processor;
     }
     
     /**
@@ -56,15 +63,23 @@ class App implements \Bloge\App
     /**
      * @return \Bloge\Processor
      */
-    public function processor()
+    public function postProcessor()
     {
-        return $this->processor;
+        return $this->postProcessor;
+    }
+    
+    /**
+     * @return \Bloge\Processor
+     */
+    public function preProcessor()
+    {
+        return $this->preProcessor;
     }
     
     /**
      * @{inheritDoc}
      */
-    public function content($directory = '')
+    public function browse($directory = '')
     {
         $content = $this->content;
         
@@ -88,10 +103,12 @@ class App implements \Bloge\App
      */
     private function fetch($route, array $data = [])
     {
+        $data = $this->preProcessor->process($route, $data);
+        
         $content = $this->content;
         $route   = $this->dispatcher->dispatch($route);
         $data    = $content->fetch($route, $data);
         
-        return $this->processor->process($route, $data);
+        return $this->postProcessor->process($route, $data);
     }
 }
