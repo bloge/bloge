@@ -2,10 +2,18 @@
 
 namespace Bloge;
 
+/**
+ * Compiler interface
+ * 
+ * Implementations of this interface are responsible for building dynamic
+ * website/content into file flat HTML website
+ * 
+ * @package Bloge
+ */
 interface Compiler
 {
     /**
-     * @param \Bloge\App;
+     * @param \Bloge\App
      */
     public function __construct(App $app);
     

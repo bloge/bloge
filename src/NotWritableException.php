@@ -2,6 +2,15 @@
 
 namespace Bloge;
 
+/**
+ * NotWritable exception
+ *
+ * This subclass of Exception should be thrown in case if destination
+ * directory isn't writable
+ * 
+ * @package Bloge
+ * @see \Bloge\Compiler
+ */
 class NotWritableException extends \Exception 
 {
     /**

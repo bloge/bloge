@@ -2,6 +2,12 @@
 
 namespace Bloge;
 
+/**
+ * NotFound exception
+ * 
+ * This subclass of Exception should be thrown in case if content 
+ * file/row/array/data item wasn't found
+ */
 class NotFoundException extends \Exception 
 {
     /**

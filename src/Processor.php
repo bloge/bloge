@@ -2,6 +2,13 @@
 
 namespace Bloge;
 
+/**
+ * Processor interface
+ * 
+ * This class is responsible for content data post processing
+ * 
+ * @package Bloge
+ */
 interface Processor
 {
     /**

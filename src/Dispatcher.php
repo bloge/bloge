@@ -2,6 +2,15 @@
 
 namespace Bloge;
 
+/**
+ * Dispatcher interface
+ * 
+ * This class is responsible for remapping routes according to set filters.
+ * Filtering should be implemented in subclass
+ * 
+ * @package Bloge
+ * @see \Bloge\Basic\Dispatcher
+ */
 interface Dispatcher
 {
     /**

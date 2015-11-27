@@ -2,6 +2,15 @@
 
 namespace Bloge;
 
+/**
+ * NotDirectory exception
+ *
+ * This subclass of Exception should be thrown in case if destination
+ * directory isn't an actual directory
+ * 
+ * @package Bloge
+ * @see \Bloge\Compiler
+ */
 class NotDirectoryException extends \Exception 
 {
     /**

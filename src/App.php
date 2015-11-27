@@ -2,6 +2,14 @@
 
 namespace Bloge;
 
+/**
+ * App interface
+ * 
+ * Implementation of this interface is a facade for listing and rendering
+ * content
+ * 
+ * @package Bloge
+ */
 interface App 
 {
     /**

@@ -3,7 +3,14 @@
 namespace Bloge;
 
 /**
+ * Internal Bloge functions
+ * 
+ * Do not, **I repeat**, do not rely on these functions. They're only for 
+ * internal use withing this repository and only inside of it. The function 
+ * arguments or names might be changed at any time
+ * 
  * @internal
+ * @package Bloge
  */
 
 /**
