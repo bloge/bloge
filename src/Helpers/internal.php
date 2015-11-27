@@ -115,12 +115,10 @@ function render($__view__, array $__data__) {
  */
 function renderData($__view__, array $__data__) {
     ob_start();
-    
     extract($__data__);
     
     $data = require $__view__;
     $data = is_array($data) ? $data : [];
-    
     $data['content'] = ob_get_clean();
     
     return $data;

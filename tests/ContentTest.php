@@ -30,6 +30,17 @@ Much projects, so awesome:
 * Dogescript
 '
                 ]
+            ],
+            [
+                'with_data.php',
+                [
+                    'title' => 'Data',
+                    'content' => 'Title
+Description'
+                ],
+                [
+                    'description' => 'Description'
+                ]
             ]
         ];
     }
@@ -50,11 +61,11 @@ Much projects, so awesome:
     /**
      * @dataProvider data
      */
-    public function testFetch($file, $expected)
+    public function testFetch($file, $expected, $data = [])
     {
         $this->assertEquals(
             $expected, 
-            $this->content()->fetch($file)
+            $this->content()->fetch($file, $data)
         );
     }
     
