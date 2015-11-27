@@ -15,15 +15,50 @@ class App implements \Bloge\App
     protected $renderer;
     
     /**
+     * @var \Bloge\Dispatcher
+     */
+    protected $dispatcher;
+    
+    /**
+     * @var \Bloge\Processor
+     */
+    protected $processor;
+    
+    /**
      * @param \Bloge\Content $content
      * @param \Bloge\Renderer $renderer
+     * @param \Bloge\Dispatcher $dispatcher
+     * @param \Bloge\Processor $processor
      */
     public function __construct(
         \Bloge\Content $content, 
-        \Bloge\Renderer $renderer
+        \Bloge\Renderer $renderer,
+        \Bloge\Dispatcher $dispatcher = null,
+        \Bloge\Processor $processor = null
     ) {
-        $this->content = new Wrapper($content, new Dispatcher);
+        $this->content  = $content;
         $this->renderer = $renderer;
+        
+        $this->dispatcher = $dispatcher ?: new Dispatcher;
+        $this->processor  = $processor ?: new Processor;
+        
+        $this->dispatcher->fill($content->browse());
+    }
+    
+    /**
+     * @return \Bloge\Dispatcher
+     */
+    public function dispatcher()
+    {
+        return $this->dispatcher;
+    }
+    
+    /**
+     * @return \Bloge\Processor
+     */
+    public function processor()
+    {
+        return $this->processor;
     }
     
     /**
@@ -31,15 +66,13 @@ class App implements \Bloge\App
      */
     public function content($directory = '')
     {
-        return $this->content->browse($directory);
-    }
-    
-    /**
-     * @return \Bloge\Basic\Wrapper
-     */
-    public function wrapper()
-    {
-        return $this->content;
+        $content = $this->content;
+        
+        return array_keys(
+            $this->dispatcher
+                ->fill($content->browse($directory))
+                ->compile()
+        );
     }
     
     /**
@@ -47,8 +80,22 @@ class App implements \Bloge\App
      */
     public function render($route, array $data = [])
     {
-        $data = $this->content->fetch($route);
+        return $this->renderer->render($this->fetch($route, $data));
+    }
+    
+    /**
+     * @see \Bloge\Content::fetch
+     */
+    private function fetch($route, array $data = [])
+    {
+        $content = $this->content;
         
-        return $this->renderer->render($data);
+        $route = $this->dispatcher
+            ->fill($content->browse())
+            ->dispatch($route);
+        
+        $data = $content->fetch($route, $data);
+        
+        return $this->processor->process($route, $data);
     }
 }
