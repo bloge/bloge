@@ -16,6 +16,22 @@ class DispatcherTest extends TestCase
                     'projects' => 'projects',
                     'en/projects' => 'projects'
                 ]
+            ],
+            [
+                ['index', 'blog', 'projects'],
+                [
+                    [
+                        'index' => 'welcome',
+                        'blog'  => 'posts'
+                    ]
+                ],
+                [
+                    'index' => 'index',
+                    'welcome' => 'index',
+                    'blog' => 'blog',
+                    'posts' => 'blog',
+                    'projects' => 'projects'
+                ]
             ]
         ];
     }
@@ -59,6 +75,20 @@ class DispatcherTest extends TestCase
                     'posts' => 'blog',
                     'projects' => 'projects'
                 ]
+            ],
+            [
+                ['index', 'blog', 'projects'],
+                [
+                    [
+                        'index' => 'welcome',
+                        'blog' => 'posts'
+                    ]
+                ],
+                [
+                    'welcome' => 'index',
+                    'posts' => 'blog',
+                    'projects' => 'projects'
+                ]
             ]
         ];
     }
@@ -71,7 +101,9 @@ class DispatcherTest extends TestCase
         $dispatcher = new Dispatcher($routes);
         
         foreach ($aliases as $key => $value) {
-            $dispatcher->alias($key, $value);
+            is_array($value)
+                ? $dispatcher->alias($value)
+                : $dispatcher->alias($key, $value);
         }
         
         $this->assertEquals($expected, $dispatcher->compile());
@@ -97,11 +129,12 @@ class DispatcherTest extends TestCase
     public function testMappingCompiling($routes, $maps, $expected)
     {
         $dispatcher = new Dispatcher;
-        // Just to cover another method
         $dispatcher->fill($routes);
             
         foreach ($maps as $key => $value) {
-            $dispatcher->map($key, $value);
+            is_array($value)
+                ? $dispatcher->map($value)
+                : $dispatcher->map($key, $value);
         }
         
         $this->assertEquals($expected, $dispatcher->compile());

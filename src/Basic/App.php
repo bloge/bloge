@@ -22,7 +22,7 @@ class App implements \Bloge\App
         \Bloge\Content $content, 
         \Bloge\Renderer $renderer
     ) {
-        $this->content = new Wrapper($content);
+        $this->content = new Wrapper($content, new Dispatcher);
         $this->renderer = $renderer;
     }
     

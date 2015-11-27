@@ -36,9 +36,14 @@ class Dispatcher implements \Bloge\Dispatcher
      * @param string $from
      * @param string $to
      */
-    public function alias($from, $to)
+    public function alias($from, $to = '')
     {
-        $this->aliases[$from] = $to;
+        if (is_array($from)) {
+            $this->aliases = array_merge($this->aliases, $from);
+        }
+        else {
+            $this->aliases[$from] = $to;
+        }
         
         return $this;
     }
@@ -57,9 +62,14 @@ class Dispatcher implements \Bloge\Dispatcher
      * @param string $from
      * @param string $to
      */
-    public function map($from, $to)
+    public function map($from, $to = '')
     {
-        $this->maps[$from] = $to;
+        if (is_array($from)) {
+            $this->maps = array_merge($this->maps, $from);
+        }
+        else {
+            $this->maps[$from] = $to;
+        }
         
         return $this;
     }
@@ -79,10 +89,7 @@ class Dispatcher implements \Bloge\Dispatcher
      */
     public function compile()
     {
-        $map = array_combine(
-            $this->routes, 
-            $this->routes
-        );
+        $map = array_combine($this->routes, $this->routes);
         
         foreach ($this->aliases as $from => $to) {
             $map[$to] = $from;

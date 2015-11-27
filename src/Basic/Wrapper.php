@@ -10,12 +10,21 @@ class Wrapper implements \Bloge\Content
     protected $content;
     
     /**
+     * @var \Bloge\Dispatcher $dispatcher
+     */
+    protected $dispatcher;
+    
+    /**
      * @param \Bloge\Content $content
      */
-    public function __construct(\Bloge\Content $content)
-    {
+    public function __construct(
+        \Bloge\Content $content,
+        \Bloge\Dispatcher $dispatcher
+    ) {
         $this->content = $content;
-        $this->dispatcher = new Dispatcher;
+        $this->dispatcher = $dispatcher;
+        
+        $dispatcher->fill($content->browse());
     }
     
     /**
