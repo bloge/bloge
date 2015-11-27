@@ -17,6 +17,8 @@ P.S.: temporary upload on bitbucket
 Simple website with Bloge:
 
 ```php
+<?php
+
 // app.php
 
 use Bloge\Basic\App;
