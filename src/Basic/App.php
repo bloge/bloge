@@ -89,12 +89,8 @@ class App implements \Bloge\App
     private function fetch($route, array $data = [])
     {
         $content = $this->content;
-        
-        $route = $this->dispatcher
-            ->fill($content->browse())
-            ->dispatch($route);
-        
-        $data = $content->fetch($route, $data);
+        $route   = $this->dispatcher->dispatch($route);
+        $data    = $content->fetch($route, $data);
         
         return $this->processor->process($route, $data);
     }

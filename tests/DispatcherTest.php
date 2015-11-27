@@ -171,6 +171,6 @@ class DispatcherTest extends TestCase
         $this->assertEquals('projects', $dispatcher->dispatch('projectos'));
         $this->assertEquals('projects', $dispatcher->dispatch('projects'));
         $this->assertEquals('', $dispatcher->dispatch('_drafts/blog'));
-        $this->assertEquals('', $dispatcher->dispatch('foobar'));
+        $this->assertEquals('foobar', $dispatcher->dispatch('foobar'));
     }
 }

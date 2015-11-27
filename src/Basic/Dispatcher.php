@@ -122,6 +122,7 @@ class Dispatcher implements \Bloge\Dispatcher
      */
     public function dispatch($route)
     {
+        $this->routes = [$route];
         $map = $this->compile();
         
         return isset($map[$route]) ? $map[$route] : '';
