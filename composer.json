@@ -7,8 +7,7 @@
             "Bloge\\": "src/"
         },
         "files": [
-            "src/Helpers/internal.php",
-            "src/Helpers/plugins.php"
+            "src/Helpers/internal.php"
         ]
     },
     "autoload-dev": {
