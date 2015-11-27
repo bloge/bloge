@@ -36,29 +36,29 @@ class Compiler implements \Bloge\Compiler
         $app = $this->app;
         $destination = chop($destination, '/');
         
-        foreach ($app->content() as $file) {
-            $name = $this->processFilePath(chop($file, '/'));
+        foreach ($app->content() as $path) {
+            $name = $this->processPath(chop($path, '/'));
             
             \Bloge\expandPath($name, $destination);
             
-            file_put_contents("$destination/$name", $app->render($file));
+            file_put_contents("$destination/$name", $app->render($path));
         }
     }
     
     /**
-     * @param string $file
+     * @param string $path
      * @return string
      */
-    private function processFilePath($file)
+    private function processPath($path)
     {
-        if (\Bloge\endsWith($file, 'index')) {
-            $file .= '.html';
+        if (\Bloge\endsWith($path, 'index')) {
+            $path .= '.html';
         }
         
-        if (!\Bloge\hasExtension($file)) {
-            $file .= '/index.html';
+        if (!\Bloge\hasExtension($path)) {
+            $path .= '/index.html';
         }
         
-        return $file;
+        return $path;
     }
 }

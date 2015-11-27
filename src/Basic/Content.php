@@ -30,15 +30,15 @@ class Content implements \Bloge\Content
     /**
      * @{inheritDoc}
      */
-    public function fetch($file, array $data = [])
+    public function fetch($path, array $data = [])
     {
-        $path = \Bloge\globPath($this->path($file));
+        $file = \Bloge\globPath($this->path($path));
         
-        if (!is_file($path)) {
-            throw new NotFoundException($file);
+        if (!is_file($file)) {
+            throw new NotFoundException($path);
         }
         
-        return \Bloge\renderData($path, $data);
+        return \Bloge\renderData($file, $data);
     }
     
     /**

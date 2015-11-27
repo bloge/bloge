@@ -5,9 +5,9 @@ namespace Bloge;
 interface Processor
 {
     /**
-     * @param string $file
+     * @param string $path
      * @param array $data
      * @return array
      */
-    public function process($file, array $data);
+    public function process($path, array $data);
 }

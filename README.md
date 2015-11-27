@@ -40,7 +40,7 @@ $app = require 'app.php';
 
 try {
     echo $app->render($_GET['route']);
-} catch (Bloge\FileNotFoundException $e) {
+} catch (Bloge\NotFoundException $e) {
     echo $app->render('404');
 }
 ```

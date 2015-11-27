@@ -6,7 +6,7 @@ class ProcessorTest extends TestCase
 {
     public function processors()
     {
-        $markdown = function ($file, array $data) {
+        $markdown = function ($path, array $data) {
             if (isset($data['content'])) {
                 $data['content'] = "<p>{$data['content']}</p>";
             }
@@ -14,8 +14,8 @@ class ProcessorTest extends TestCase
             return $data;
         };
         
-        $file = function ($file, array $data) {
-            $data['file'] = $file;
+        $path = function ($path, array $data) {
+            $data['path'] = $path;
             
             return $data;
         };
@@ -39,11 +39,11 @@ class ProcessorTest extends TestCase
                     'title' => 'Hello',
                     'content' => 'Welcome! See my projects',
                 ],
-                [$markdown, $file],
+                [$markdown, $path],
                 [
                     'title' => 'Hello',
                     'content' => '<p>Welcome! See my projects</p>',
-                    'file' => 'projects'
+                    'path' => 'projects'
                 ]
             ]
         ];
@@ -107,7 +107,7 @@ class ProcessorTest extends TestCase
     /**
      * @dataProvider processors
      */
-    public function testProcessor($file, $data, $processors, $expected)
+    public function testProcessor($path, $data, $processors, $expected)
     {
         $processor = new Processor;
         
@@ -115,13 +115,13 @@ class ProcessorTest extends TestCase
             $processor->add($callback);
         }
         
-        $this->assertEquals($expected, $processor->process($file, $data));
+        $this->assertEquals($expected, $processor->process($path, $data));
     }
     
     /**
      * @dataProvider mappedData
      */
-    public function testMapping($file, $data, $map, $expected)
+    public function testMapping($path, $data, $map, $expected)
     {
         $processor = new Processor;
         
@@ -129,6 +129,6 @@ class ProcessorTest extends TestCase
             $processor->map($key, $value);
         }
         
-        $this->assertEquals($expected, $processor->process($file, $data));
+        $this->assertEquals($expected, $processor->process($path, $data));
     }
 }

@@ -5,12 +5,12 @@ namespace Bloge;
 interface Content
 {
     /**
-     * @param string $file
+     * @param string $path
      * @param array $data
-     * @throws \Bloge\FileNotFoundException if file wasn't found
+     * @throws \Bloge\NotFoundException if content wasn't found
      * @return array
      */
-    public function fetch($file, array $data = []);
+    public function fetch($path, array $data = []);
     
     /**
      * @param string $directory
