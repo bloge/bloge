@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\Content\FrontMatter;
+namespace Bloge\Content;
 
-class FrontMatterTest extends TestCase
+class FrontMatterTest extends \TestCase
 {
     public function data()
     {

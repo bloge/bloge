@@ -1,10 +1,11 @@
 <?php
 
-use Bloge\Apps\BasicApp;
+namespace Bloge\Apps;
+
 use Bloge\Content\PHP as Content;
 use Bloge\Renderers\PHP as Renderer;
 
-class AppTest extends TestCase
+class AppTest extends \TestCase
 {
     private function app()
     {

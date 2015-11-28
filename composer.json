@@ -11,6 +11,9 @@
         ]
     },
     "autoload-dev": {
+        "psr-4": {
+            "Bloge\\": "tests/"
+        },
         "files": [
             "tests/TestCase.php"
         ]

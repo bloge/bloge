@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\Renderers\PHP;
+namespace Bloge\Renderers;
 
-class RendererTest extends TestCase
+class RendererTest extends \TestCase
 {
     public function partials()
     {

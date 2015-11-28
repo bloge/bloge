@@ -1,11 +1,11 @@
 <?php
 
-use Bloge\Content\PHP;
+namespace Bloge\Content;
 
 /**
  * @todo cleanup data() dataProvider
  */
-class PHPTest extends TestCase
+class PHPTest extends \TestCase
 {
     public function data()
     {
@@ -81,7 +81,7 @@ Description'
     public function testBrowse()
     {
         $this->assertEquals(
-            Bloge\listFiles(CONTENT_DIR, CONTENT_DIR),
+            \Bloge\listFiles(CONTENT_DIR, CONTENT_DIR),
             $this->content()->browse()
         );
     }

@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\Processors\Processor;
+namespace Bloge\Processors;
 
-class ProcessorTest extends TestCase
+class ProcessorTest extends \TestCase
 {
     public function processors()
     {

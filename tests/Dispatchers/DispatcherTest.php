@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\Dispatchers\Dispatcher;
+namespace Bloge\Dispatchers;
 
-class DispatcherTest extends TestCase
+class DispatcherTest extends \TestCase
 {
     public function aliases()
     {

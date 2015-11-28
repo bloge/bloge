@@ -1,11 +1,12 @@
 <?php
 
+namespace Bloge\Compilers;
+
 use Bloge\Apps\BasicApp;
-use Bloge\Compilers\HTMLCompiler;
 use Bloge\Content\PHP as Content;
 use Bloge\Renderers\PHP as Renderer;
 
-class CompilerTest extends TestCase
+class HTMLCompilerTest extends \TestCase
 {
     private function compiler()
     {

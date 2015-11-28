@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\DataMappers\DataMapper;
+namespace Bloge\DataMappers;
 
-class DataMapperTest extends TestCase
+class DataMapperTest extends \TestCase
 {
     public function mappedData()
     {
