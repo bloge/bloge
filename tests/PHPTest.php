@@ -1,24 +1,24 @@
 <?php
 
-use Bloge\Content\BasicContent;
+use Bloge\Content\PHP;
 
 /**
  * @todo cleanup data() dataProvider
  */
-class ContentTest extends TestCase
+class PHPTest extends TestCase
 {
     public function data()
     {
         return [
             [
-                'index.php', 
+                'index', 
                 [
                     'title' => 'hello', 
                     'content' => 'Hello!'
                 ]
             ],
             [
-                'project.php', 
+                'project', 
                 [
                     'title' => 'Much projects',
                     'content' => '
@@ -32,7 +32,7 @@ Much projects, so awesome:
                 ]
             ],
             [
-                'with_data.php',
+                'with_data',
                 [
                     'title' => 'Data',
                     'content' => 'Title
@@ -48,14 +48,14 @@ Description'
     public function failingData()
     {
         return [
-            ['foobar.php'],
-            ['tron.php']
+            ['foobar'],
+            ['tron']
         ];
     }
     
     private function content()
     {
-        return new BasicContent(CONTENT_DIR);
+        return new PHP(CONTENT_DIR);
     }
     
     /**

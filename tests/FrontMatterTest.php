@@ -1,8 +1,8 @@
 <?php
 
-use Bloge\Content\FrontContent;
+use Bloge\Content\FrontMatter;
 
-class FrontContentTest extends TestCase
+class FrontMatterTest extends TestCase
 {
     public function data()
     {
@@ -26,7 +26,7 @@ class FrontContentTest extends TestCase
     
     public function content()
     {
-        return new FrontContent(MAIN_DIR . '/front');
+        return new FrontMatter(MAIN_DIR . '/front');
     }
     
     /**

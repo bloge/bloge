@@ -7,11 +7,9 @@ use Bloge\NotFoundException;
 /**
  * Front matter content
  * 
- * This content 
- * 
  * @package Bloge
  */
-class FrontContent extends BasicContent
+class FrontMatter extends FileSystem
 {
     /**
      * @const string SEPARATOR Header and content separator

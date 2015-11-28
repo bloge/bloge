@@ -10,7 +10,7 @@ use Bloge\NotFoundException;
  * 
  * @package Bloge
  */
-class BasicContent implements Content
+abstract class FileSystem implements Content
 {
     /**
      * @var string $path
@@ -36,16 +36,7 @@ class BasicContent implements Content
     /**
      * @{inheritDoc}
      */
-    public function fetch($path, array $data = [])
-    {
-        $file = \Bloge\globPath($this->path($path));
-        
-        if (!is_file($file)) {
-            throw new NotFoundException($path);
-        }
-        
-        return \Bloge\renderData($file, $data);
-    }
+    abstract public function fetch($path, array $data = []);
     
     /**
      * @{inheritDoc}
