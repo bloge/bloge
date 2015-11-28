@@ -1,15 +1,15 @@
 <?php
 
 use Bloge\Apps\BasicApp;
-use Bloge\Content\PHP;
-use Bloge\Renderers\Renderer;
+use Bloge\Content\PHP as Content;
+use Bloge\Renderers\PHP as Renderer;
 
 class AppTest extends TestCase
 {
     private function app()
     {
         return new BasicApp(
-            new PHP(CONTENT_DIR),
+            new Content(CONTENT_DIR),
             new Renderer(THEME_DIR)
         );
     }

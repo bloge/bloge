@@ -9,7 +9,7 @@ namespace Bloge\Processors;
  * 
  * @package Bloge
  */
-class Processor implements \Bloge\Processor
+class Processor implements IProcessor
 {
     /**
      * @var array $processors

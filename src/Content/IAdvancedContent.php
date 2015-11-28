@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Content;
 
 /**
  * Content interface
@@ -11,7 +11,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface AdvancedContent extends Content
+interface IAdvancedContent extends Content
 {
     /**
      * @return \Bloge\DataMappers\DataMapper

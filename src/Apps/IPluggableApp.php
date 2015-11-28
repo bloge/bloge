@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Apps;
 
 /**
  * Pluggable application
@@ -9,7 +9,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface PluggableApp extends App
+interface IPluggableApp extends App
 {
     /**
      * @return \Bloge\Content\Advanced

@@ -2,8 +2,7 @@
 
 namespace Bloge\Compilers;
 
-use Bloge\App;
-use Bloge\Compiler;
+use Bloge\Apps\IApp;
 use Bloge\NotDirectoryException;
 use Bloge\NotWritableException;
 
@@ -14,7 +13,7 @@ use Bloge\NotWritableException;
  * 
  * @package Bloge
  */
-class HTMLCompiler implements Compiler
+class HTMLCompiler implements ICompiler
 {
     /**
      * @var \Bloge\App $app
@@ -24,7 +23,7 @@ class HTMLCompiler implements Compiler
     /**
      * @param \Bloge\App $app
      */
-    public function __construct(App $app)
+    public function __construct(IApp $app)
     {
         $this->app = $app;
     }

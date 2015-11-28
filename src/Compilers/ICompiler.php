@@ -1,6 +1,8 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Compilers;
+
+use Bloge\Apps\IApp;
 
 /**
  * Compiler interface
@@ -10,12 +12,12 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface Compiler
+interface ICompiler
 {
     /**
      * @param \Bloge\App
      */
-    public function __construct(App $app);
+    public function __construct(IApp $app);
     
     /**
      * Builds content into $destination folder

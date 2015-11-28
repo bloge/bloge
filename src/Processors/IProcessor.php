@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Processors;
 
 /**
  * Processor interface
@@ -9,7 +9,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface Processor
+interface IProcessor
 {
     /**
      * @param string $path

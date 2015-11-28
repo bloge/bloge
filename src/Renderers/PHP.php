@@ -11,7 +11,7 @@ use Bloge\NotFoundException;
  * 
  * @package Bloge
  */
-class Renderer implements \Bloge\Renderer
+class PHP implements IRenderer
 {
     /**
      * @var string $path

@@ -2,7 +2,8 @@
 
 namespace Bloge\Apps;
 
-use Bloge\App;
+use Bloge\Content\IContent;
+use Bloge\Renderers\IRenderer;
 
 /**
  * Basic application
@@ -12,25 +13,25 @@ use Bloge\App;
  * 
  * @package Bloge
  */
-class BasicApp implements App
+class BasicApp implements IApp
 {
     /**
-     * @var \Bloge\Content $content
+     * @var \Bloge\Content\Content $content
      */
     protected $content;
     
     /**
-     * @var \Bloge\Renderer $renderer
+     * @var \Bloge\Renderers\Renderer $renderer
      */
     protected $renderer;
     
     /**
-     * @param \Bloge\Content $content
-     * @param \Bloge\Renderer $renderer
+     * @param \Bloge\Content\Content $content
+     * @param \Bloge\Renderers\Renderer $renderer
      */
     public function __construct(
-        \Bloge\Content $content, 
-        \Bloge\Renderer $renderer
+        IContent $content, 
+        IRenderer $renderer
     ) {
         $this->content = $content;
         $this->renderer = $renderer;

@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Renderers\Renderer;
+use Bloge\Renderers\PHP;
 
 class RendererTest extends TestCase
 {
@@ -22,7 +22,7 @@ class RendererTest extends TestCase
     
     private function renderer()
     {
-        return new Renderer(THEME_DIR);
+        return new PHP(THEME_DIR);
     }
     
     /**

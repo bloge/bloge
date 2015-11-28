@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Renderers;
 
 /**
  * Renderer interface
@@ -10,7 +10,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface Renderer
+interface IRenderer
 {
     /**
      * @param array $data

@@ -9,7 +9,7 @@ namespace Bloge\DataMappers;
  * 
  * @package Bloge
  */
-class DataMapper implements \Bloge\DataMapper
+class DataMapper implements IDataMapper
 {
     /**
      * @var array $map

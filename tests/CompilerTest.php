@@ -2,8 +2,8 @@
 
 use Bloge\Apps\BasicApp;
 use Bloge\Compilers\HTMLCompiler;
-use Bloge\Content\PHP;
-use Bloge\Renderers\Renderer;
+use Bloge\Content\PHP as Content;
+use Bloge\Renderers\PHP as Renderer;
 
 class CompilerTest extends TestCase
 {
@@ -11,7 +11,7 @@ class CompilerTest extends TestCase
     {
         return new HTMLCompiler(
             new BasicApp(
-                new PHP(CONTENT_DIR),
+                new Content(CONTENT_DIR),
                 new Renderer(THEME_DIR)
             )
         );

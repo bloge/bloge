@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Apps;
 
 /**
  * App interface
@@ -10,7 +10,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface App 
+interface IApp 
 {
     /**
      * @param string $directory

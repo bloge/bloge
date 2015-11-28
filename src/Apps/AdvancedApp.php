@@ -2,10 +2,9 @@
 
 namespace Bloge\Apps;
 
-use Bloge\PluggableApp;
 use Bloge\Plugin;
 
-class App extends BasicApp implements PluggableApp
+class AdvancedApp extends BasicApp implements IPluggableApp
 {
     /**
      * @param \Bloge\Content\Advanced $content

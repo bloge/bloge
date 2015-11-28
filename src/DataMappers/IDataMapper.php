@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\DataMappers;
 
 /**
  * DataMapper interface
@@ -10,7 +10,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface DataMapper
+interface IDataMapper
 {
     /**
      * @param string $path

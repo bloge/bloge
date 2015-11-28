@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Dispatchers;
 
 /**
  * Dispatcher interface
@@ -11,7 +11,7 @@ namespace Bloge;
  * @package Bloge
  * @see \Bloge\Basic\Dispatcher
  */
-interface Dispatcher
+interface IDispatcher
 {
     /**
      * @param array $routes

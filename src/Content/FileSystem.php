@@ -2,7 +2,6 @@
 
 namespace Bloge\Content;
 
-use Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
@@ -10,7 +9,7 @@ use Bloge\NotFoundException;
  * 
  * @package Bloge
  */
-abstract class FileSystem implements Content
+abstract class FileSystem implements IContent
 {
     /**
      * @var string $path

@@ -2,17 +2,15 @@
 
 namespace Bloge\Content;
 
-use Bloge\AdvancedContent;
-use Bloge\Content;
 use Bloge\DataMappers\DataMapper;
 use Bloge\Dispatchers\Dispatcher;
 use Bloge\NotFoundException;
 use Bloge\Processors\Processor;
 
-class Advanced implements AdvancedContent
+class Advanced implements IAdvancedContent
 {
     /**
-     * @var \Bloge\Content
+     * @var \Bloge\Content\Content
      */
     protected $content;
     
@@ -32,16 +30,16 @@ class Advanced implements AdvancedContent
     protected $processor;
     
     /**
-     * @param \Bloge\Content $content
+     * @param \Bloge\Content\Content $content
      * @param \Bloge\DataMappers\DataMapper $dataMapper
      * @param \Bloge\Dispatchers\Dispatcher $dispatcher
      * @param \Bloge\Processors\Processor $processor
      */
     public function __construct(
-        \Bloge\Content $content, 
-        \Bloge\DataMapper $dataMapper = null,
-        \Bloge\Dispatcher $dispatcher = null,
-        \Bloge\Processor $processor = null
+        Content $content, 
+        DataMapper $dataMapper = null,
+        Dispatcher $dispatcher = null,
+        Processor $processor = null
     ) {
         $this->content    = $content;
         $this->dataMapper = $dataMapper ?: new DataMapper;

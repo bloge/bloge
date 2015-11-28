@@ -1,6 +1,6 @@
 <?php
 
-namespace Bloge;
+namespace Bloge\Content;
 
 /**
  * Content interface
@@ -11,7 +11,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface Content
+interface IContent
 {
     /**
      * @param string $path

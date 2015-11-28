@@ -9,7 +9,7 @@ namespace Bloge\Dispatchers;
  * 
  * @package Bloge
  */
-class Dispatcher implements \Bloge\Dispatcher
+class Dispatcher implements IDispatcher
 {
     /**
      * @var array $routes
