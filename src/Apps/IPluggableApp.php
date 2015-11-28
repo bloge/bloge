@@ -2,6 +2,8 @@
 
 namespace Bloge\Apps;
 
+use Bloge\IPlugin;
+
 /**
  * Pluggable application
  * 
@@ -9,7 +11,7 @@ namespace Bloge\Apps;
  * 
  * @package Bloge
  */
-interface IPluggableApp extends App
+interface IPluggableApp extends IApp
 {
     /**
      * @return \Bloge\Content\Advanced
@@ -20,5 +22,5 @@ interface IPluggableApp extends App
      * @param \Bloge\Plugin $plugin
      * @return \Bloge\PluggableApp $this
      */
-    public function plugin(Plugin $plugin);
+    public function plugin(IPlugin $plugin);
 }

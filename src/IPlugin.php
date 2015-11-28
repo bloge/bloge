@@ -10,7 +10,7 @@ namespace Bloge;
  * 
  * @package Bloge
  */
-interface Plugin
+interface IPlugin
 {
     /**
      * @param \Bloge\PluggableApp $app

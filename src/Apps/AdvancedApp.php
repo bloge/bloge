@@ -2,7 +2,9 @@
 
 namespace Bloge\Apps;
 
-use Bloge\Plugin;
+use Bloge\Content\Advanced;
+use Bloge\IPlugin;
+use Bloge\Renderers\IRenderer;
 
 class AdvancedApp extends BasicApp implements IPluggableApp
 {
@@ -11,8 +13,8 @@ class AdvancedApp extends BasicApp implements IPluggableApp
      * @param \Bloge\Renderer $renderer
      */
     public function __construct(
-        \Bloge\Content\Advanced $content, 
-        \Bloge\Renderer $renderer
+        Advanced $content, 
+        IRenderer $renderer
     ) {
         $this->content  = $content;
         $this->renderer = $renderer;
@@ -29,7 +31,7 @@ class AdvancedApp extends BasicApp implements IPluggableApp
     /**
      * @{inheritDoc}
      */
-    public function plugin(Plugin $plugin) 
+    public function plugin(IPlugin $plugin) 
     {
         $plugin->register($this);
         

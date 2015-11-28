@@ -30,13 +30,13 @@ class Advanced implements IAdvancedContent
     protected $processor;
     
     /**
-     * @param \Bloge\Content\Content $content
+     * @param \Bloge\Content\IContent $content
      * @param \Bloge\DataMappers\DataMapper $dataMapper
      * @param \Bloge\Dispatchers\Dispatcher $dispatcher
      * @param \Bloge\Processors\Processor $processor
      */
     public function __construct(
-        Content $content, 
+        IContent $content, 
         DataMapper $dataMapper = null,
         Dispatcher $dispatcher = null,
         Processor $processor = null
