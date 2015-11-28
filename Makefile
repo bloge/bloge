@@ -1,3 +1,8 @@
+# Bloge Makefile
+# 
+# This make file simplifies running unit testing commands. That's it.
+# Only PHPUnit testing.
+
 TEST_FOLDERS=tests/resources/{build,non_writable}
 NON_WRITABLE=tests/resources/non_writable
 
@@ -17,7 +22,7 @@ cover: clean create
 	        --coverage-text \
 	        --colors always
 
-# Folder manipulation
+# Build environment manipulations
 clean:
 	rm -rf $(TEST_FOLDERS)
 
