@@ -1,6 +1,6 @@
 <?php
 
-use Bloge\Apps\App;
+use Bloge\Apps\BasicApp;
 use Bloge\Compilers\HTMLCompiler;
 use Bloge\Content\PHP;
 use Bloge\Renderers\Renderer;
@@ -10,7 +10,7 @@ class CompilerTest extends TestCase
     private function compiler()
     {
         return new HTMLCompiler(
-            new App(
+            new BasicApp(
                 new PHP(CONTENT_DIR),
                 new Renderer(THEME_DIR)
             )

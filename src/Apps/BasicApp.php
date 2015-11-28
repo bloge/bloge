@@ -15,7 +15,7 @@ use Bloge\App;
 class BasicApp implements App
 {
     /**
-     * @var \Bloge\Content
+     * @var \Bloge\Content $content
      */
     protected $content;
     

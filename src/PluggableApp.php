@@ -12,24 +12,9 @@ namespace Bloge;
 interface PluggableApp extends App
 {
     /**
-     * @return \Bloge\Content
+     * @return \Bloge\Content\Advanced
      */
     public function content();
-    
-    /**
-     * @return \Bloge\DataMapper
-     */
-    public function dataMapper();
-    
-    /**
-     * @return \Bloge\Dispatcher
-     */
-    public function dispatcher();
-    
-    /**
-     * @return \Bloge\Processor
-     */
-    public function processor();
     
     /**
      * @param \Bloge\Plugin $plugin
