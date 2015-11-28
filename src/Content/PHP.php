@@ -5,7 +5,7 @@ namespace Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
- * Basic content
+ * Basic PHP content
  * 
  * @package Bloge
  */

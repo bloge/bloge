@@ -4,6 +4,13 @@ namespace Bloge\Renderers;
 
 use Bloge\NotFoundException;
 
+/**
+ * Basic renderer
+ * 
+ * This renderer renders raw PHP templates
+ * 
+ * @package Bloge
+ */
 class Renderer implements \Bloge\Renderer
 {
     /**

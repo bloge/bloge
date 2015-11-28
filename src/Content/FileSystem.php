@@ -6,7 +6,7 @@ use Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
- * Basic content
+ * FileSystem content abstraction
  * 
  * @package Bloge
  */

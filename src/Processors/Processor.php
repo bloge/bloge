@@ -2,6 +2,13 @@
 
 namespace Bloge\Processors;
 
+/**
+ * Processor implementation
+ * 
+ * Simple callback based processor
+ * 
+ * @package Bloge
+ */
 class Processor implements \Bloge\Processor
 {
     /**
