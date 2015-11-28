@@ -22,11 +22,11 @@ Simple website with Bloge:
 // app.php
 
 use Bloge\Apps\BasicApp;
-use Bloge\Content\PHP;
-use Bloge\Renderers\Renderer;
+use Bloge\Content\PHP as Content;
+use Bloge\Renderers\PHP as Renderer;
 
 return new App(
-    new PHP(__DIR__ . '/content'),
+    new Content(__DIR__ . '/content'),
     new Renderer(__DIR__ . '/theme')
 );
 
