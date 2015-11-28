@@ -10,13 +10,29 @@ class DataMapper implements \Bloge\DataMapper
     protected $map = [];
     
     /**
+     * @var array $globalMap
+     */
+    protected $globalMap = [];
+    
+    /**
      * @param string $path
      * @param array $data
-     * @return \Bloge\DataMapper
+     * @return \Bloge\DataMapper $this
      */
     public function map($path, array $data)
     {
         $this->map[$path] = $data;
+        
+        return $this;
+    }
+    
+    /**
+     * @param callable|array $data
+     * @return \Bloge\DataMapper $this
+     */
+    public function mapAll($data)
+    {
+        $this->globalMap[] = $data;
         
         return $this;
     }
@@ -30,6 +46,12 @@ class DataMapper implements \Bloge\DataMapper
         
         if (isset($this->map[$path])) {
             $data = $this->map[$path];
+        }
+        
+        foreach ($this->globalMap as $global) {
+            $data = array_merge($data, is_callable($global) 
+                ? $global($path) 
+                : $global);
         }
         
         return $data;

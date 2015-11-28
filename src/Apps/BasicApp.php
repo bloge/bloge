@@ -49,8 +49,8 @@ class BasicApp implements App
      */
     public function render($route, array $data = [])
     {
-        $data = $this->content->fetch($route, $data);
-        
-        return $this->renderer->render($data);
+        return $this->renderer->render(
+            $this->content->fetch($route, $data)
+        );
     }
 }

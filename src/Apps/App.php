@@ -4,6 +4,7 @@ namespace Bloge\Apps;
 
 use Bloge\Dispatchers\Dispatcher;
 use Bloge\Processors\Processor;
+use Bloge\DataMappers\DataMapper;
 
 class App implements \Bloge\App
 {
@@ -25,34 +26,34 @@ class App implements \Bloge\App
     /**
      * @var \Bloge\Processor
      */
-    protected $postProcessor;
+    protected $processor;
     
     /**
-     * @var \Bloge\Processor
+     * @var \Bloge\DataMapper
      */
-    protected $preProcessor;
+    protected $dataMapper;
     
     /**
      * @param \Bloge\Content $content
      * @param \Bloge\Renderer $renderer
      * @param \Bloge\Dispatcher $dispatcher
-     * @param \Bloge\Processor $postProcessor
-     * @param \Bloge\Processor $preProcessor
+     * @param \Bloge\Processor $processor
+     * @param \Bloge\Processor $dataMapper
      */
     public function __construct(
         \Bloge\Content $content, 
         \Bloge\Renderer $renderer,
         \Bloge\Dispatcher $dispatcher = null,
-        \Bloge\Processor $postProcessor = null,
-        \Bloge\Processor $preProcessor = null
+        \Bloge\Processor $processor = null,
+        \Bloge\DataMapper $dataMapper = null
     ) {
         $this->content  = $content;
         $this->renderer = $renderer;
         
         $this->dispatcher = $dispatcher ?: new Dispatcher;
         
-        $this->postProcessor = $postProcessor ?: new Processor;
-        $this->preProcessor  = $preProcessor ?: new Processor;
+        $this->processor = $processor ?: new Processor;
+        $this->dataMapper = $dataMapper ?: new DataMapper;
     }
     
     /**
@@ -66,17 +67,17 @@ class App implements \Bloge\App
     /**
      * @return \Bloge\Processor
      */
-    public function postProcessor()
+    public function processor()
     {
-        return $this->postProcessor;
+        return $this->processor;
     }
     
     /**
      * @return \Bloge\Processor
      */
-    public function preProcessor()
+    public function dataMapper()
     {
-        return $this->preProcessor;
+        return $this->dataMapper;
     }
     
     public function content()
@@ -109,12 +110,12 @@ class App implements \Bloge\App
      */
     private function fetch($route, array $data = [])
     {
-        $data = $this->preProcessor->process($route, $data);
+        $data = $this->dataMapper->data($route);
         
         $content = $this->content;
         $route   = $this->dispatcher->dispatch($route);
-        $data    = $content->fetch($route, $data);
+        $data    = array_merge($data, $content->fetch($route, $data));
         
-        return $this->postProcessor->process($route, $data);
+        return $this->processor->process($route, $data);
     }
 }
