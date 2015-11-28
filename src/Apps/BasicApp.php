@@ -16,18 +16,18 @@ use Bloge\Renderers\IRenderer;
 class BasicApp implements IApp
 {
     /**
-     * @var \Bloge\Content\Content $content
+     * @var \Bloge\Content\IContent $content
      */
     protected $content;
     
     /**
-     * @var \Bloge\Renderers\Renderer $renderer
+     * @var \Bloge\Renderers\IRenderer $renderer
      */
     protected $renderer;
     
     /**
-     * @param \Bloge\Content\Content $content
-     * @param \Bloge\Renderers\Renderer $renderer
+     * @param \Bloge\Content\IContent $content
+     * @param \Bloge\Renderers\IRenderer $renderer
      */
     public function __construct(
         IContent $content, 

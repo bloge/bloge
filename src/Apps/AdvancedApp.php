@@ -10,7 +10,7 @@ class AdvancedApp extends BasicApp implements IPluggableApp
 {
     /**
      * @param \Bloge\Content\Advanced $content
-     * @param \Bloge\Renderer $renderer
+     * @param \Bloge\Renderers\IRenderer $renderer
      */
     public function __construct(
         Advanced $content, 

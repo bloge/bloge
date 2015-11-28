@@ -15,7 +15,7 @@ use Bloge\Apps\IApp;
 interface ICompiler
 {
     /**
-     * @param \Bloge\App
+     * @param \Bloge\IApp
      */
     public function __construct(IApp $app);
     

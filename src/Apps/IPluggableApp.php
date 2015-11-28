@@ -7,7 +7,7 @@ use Bloge\IPlugin;
 /**
  * Pluggable application
  * 
- * Application that can be plugged with \Bloge\Plugin
+ * Application that can be plugged with \Bloge\IPlugin
  * 
  * @package Bloge
  */
@@ -19,8 +19,8 @@ interface IPluggableApp extends IApp
     public function content();
     
     /**
-     * @param \Bloge\Plugin $plugin
-     * @return \Bloge\PluggableApp $this
+     * @param \Bloge\IPlugin $plugin
+     * @return \Bloge\IPluggableApp $this
      */
     public function plugin(IPlugin $plugin);
 }

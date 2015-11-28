@@ -16,12 +16,12 @@ use Bloge\NotWritableException;
 class HTMLCompiler implements ICompiler
 {
     /**
-     * @var \Bloge\App $app
+     * @var \Bloge\IApp $app
      */
     protected $app;
     
     /**
-     * @param \Bloge\App $app
+     * @param \Bloge\IApp $app
      */
     public function __construct(IApp $app)
     {

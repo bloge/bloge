@@ -10,7 +10,7 @@ use Bloge\Processors\Processor;
 class Advanced implements IAdvancedContent
 {
     /**
-     * @var \Bloge\Content\Content
+     * @var \Bloge\Content\IContent
      */
     protected $content;
     

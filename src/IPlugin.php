@@ -2,6 +2,8 @@
 
 namespace Bloge;
 
+use Bloge\Apps\IPluggableApp;
+
 /**
  * Plugin interface
  * 
@@ -13,7 +15,7 @@ namespace Bloge;
 interface IPlugin
 {
     /**
-     * @param \Bloge\PluggableApp $app
+     * @param \Bloge\IPluggableApp $app
      */
-    public function register(PluggableApp $app);
+    public function register(IPluggableApp $app);
 }
