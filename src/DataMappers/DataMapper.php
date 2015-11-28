@@ -48,10 +48,10 @@ class DataMapper implements \Bloge\DataMapper
             $data = $this->map[$path];
         }
         
-        foreach ($this->globalMap as $global) {
-            $data = array_merge($data, is_callable($global) 
-                ? $global($path) 
-                : $global);
+        foreach ($this->globalMap as $map) {
+            $data = array_merge($data, is_callable($map) 
+                ? $map($path) 
+                : $map);
         }
         
         return $data;

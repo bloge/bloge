@@ -2,6 +2,13 @@
 
 namespace Bloge\Dispatchers;
 
+/**
+ * Dispatcher implementation
+ * 
+ * CRUD for routes remapping
+ * 
+ * @package Bloge
+ */
 class Dispatcher implements \Bloge\Dispatcher
 {
     /**

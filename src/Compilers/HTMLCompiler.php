@@ -7,6 +7,13 @@ use Bloge\Compiler;
 use Bloge\NotDirectoryException;
 use Bloge\NotWritableException;
 
+/**
+ * HTML compiler
+ * 
+ * Compiles content provided by app into static HTML website
+ * 
+ * @package Bloge
+ */
 class HTMLCompiler implements Compiler
 {
     /**

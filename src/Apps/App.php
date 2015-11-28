@@ -2,11 +2,12 @@
 
 namespace Bloge\Apps;
 
-use Bloge\Dispatchers\Dispatcher;
-use Bloge\Processors\Processor;
 use Bloge\DataMappers\DataMapper;
+use Bloge\Dispatchers\Dispatcher;
+use Bloge\NotFoundException;
+use Bloge\Processors\Processor;
 
-class App implements \Bloge\App
+class App implements \Bloge\PluggableApp
 {
     /**
      * @var \Bloge\Content
@@ -19,6 +20,11 @@ class App implements \Bloge\App
     protected $renderer;
     
     /**
+     * @var \Bloge\DataMapper
+     */
+    protected $dataMapper;
+    
+    /**
      * @var \Bloge\Dispatcher
      */
     protected $dispatcher;
@@ -29,35 +35,45 @@ class App implements \Bloge\App
     protected $processor;
     
     /**
-     * @var \Bloge\DataMapper
-     */
-    protected $dataMapper;
-    
-    /**
      * @param \Bloge\Content $content
      * @param \Bloge\Renderer $renderer
+     * @param \Bloge\DataMapper $dataMapper
      * @param \Bloge\Dispatcher $dispatcher
      * @param \Bloge\Processor $processor
-     * @param \Bloge\Processor $dataMapper
      */
     public function __construct(
         \Bloge\Content $content, 
         \Bloge\Renderer $renderer,
+        \Bloge\DataMapper $dataMapper = null,
         \Bloge\Dispatcher $dispatcher = null,
-        \Bloge\Processor $processor = null,
-        \Bloge\DataMapper $dataMapper = null
+        \Bloge\Processor $processor = null
     ) {
         $this->content  = $content;
         $this->renderer = $renderer;
         
-        $this->dispatcher = $dispatcher ?: new Dispatcher;
-        
-        $this->processor = $processor ?: new Processor;
         $this->dataMapper = $dataMapper ?: new DataMapper;
+        $this->dispatcher = $dispatcher ?: new Dispatcher;
+        $this->processor  = $processor  ?: new Processor;
     }
     
     /**
-     * @return \Bloge\Dispatcher
+     * @{inheritDoc}
+     */
+    public function content()
+    {
+        return $this->content;
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function dataMapper()
+    {
+        return $this->dataMapper;
+    }
+    
+    /**
+     * @{inheritDoc}
      */
     public function dispatcher()
     {
@@ -65,24 +81,11 @@ class App implements \Bloge\App
     }
     
     /**
-     * @return \Bloge\Processor
+     * @{inheritDoc}
      */
     public function processor()
     {
         return $this->processor;
-    }
-    
-    /**
-     * @return \Bloge\Processor
-     */
-    public function dataMapper()
-    {
-        return $this->dataMapper;
-    }
-    
-    public function content()
-    {
-        return $this->content;
     }
     
     /**
@@ -114,8 +117,14 @@ class App implements \Bloge\App
         
         $content = $this->content;
         $route   = $this->dispatcher->dispatch($route);
-        $data    = array_merge($data, $content->fetch($route, $data));
         
-        return $this->processor->process($route, $data);
+        $data = array_merge($data, $content->fetch($route, $data));
+        $data = $this->processor->process($route, $data);
+        
+        if (!$data) {
+            throw new NoFoundException($route);
+        }
+        
+        return $data;
     }
 }
