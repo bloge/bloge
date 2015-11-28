@@ -1,7 +1,7 @@
 # Bloge Makefile
 # 
 # This make file simplifies running unit testing commands. That's it.
-# Only PHPUnit testing.
+# Only for PHPUnit testing.
 
 TEST_FOLDERS=tests/resources/{build,non_writable}
 NON_WRITABLE=tests/resources/non_writable

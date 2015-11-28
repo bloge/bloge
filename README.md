@@ -22,11 +22,11 @@ Simple website with Bloge:
 // app.php
 
 use Bloge\Apps\BasicApp;
-use Bloge\Content\BasicContent;
+use Bloge\Content\PHP;
 use Bloge\Renderers\Renderer;
 
 return new App(
-    new Content(__DIR__ . '/content'),
+    new PHP(__DIR__ . '/content'),
     new Renderer(__DIR__ . '/theme')
 );
 
@@ -46,17 +46,20 @@ try {
 And to build it down to static HTML website:
 
 ```sh
+# Create folder build
 mkdir build
 
+# Build application content to build folder
 php vendor/bin/bloge app.php build
 ```
 
 ## Features
 
 * Simple and flexible API
-* Compile your website to static HTML
+* Compile app to static HTML
 * Content route aliases, maps and ignores
 * Content processing
+* Data mapping
 
 ## Getting started
 
@@ -75,6 +78,13 @@ composer create-project bloge/starter-pack
 
 In current directory will be created Bloge starter pack website. You can 
 explore its source code and read manual provided by this starter pack.
+
+Also checkout advanced pack that comes with FrontMatter content and Twig 
+template engine `bloge/advanced-pack`:
+
+```sh
+composer create-project bloge/advanced-pack
+```
 
 ## License
 
