@@ -30,4 +30,10 @@ interface PluggableApp extends App
      * @return \Bloge\Processor
      */
     public function processor();
+    
+    /**
+     * @param \Bloge\Plugin $plugin
+     * @return \Bloge\PluggableApp $this
+     */
+    public function plugin(Plugin $plugin);
 }

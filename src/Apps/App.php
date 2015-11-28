@@ -6,8 +6,10 @@ use Bloge\DataMappers\DataMapper;
 use Bloge\Dispatchers\Dispatcher;
 use Bloge\NotFoundException;
 use Bloge\Processors\Processor;
+use Bloge\PluggableApp;
+use Bloge\Plugin;
 
-class App implements \Bloge\PluggableApp
+class App implements PluggableApp
 {
     /**
      * @var \Bloge\Content
@@ -86,6 +88,16 @@ class App implements \Bloge\PluggableApp
     public function processor()
     {
         return $this->processor;
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function plugin(Plugin $plugin) 
+    {
+        $plugin->register($this);
+        
+        return $this;
     }
     
     /**
