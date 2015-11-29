@@ -2,8 +2,11 @@
 
 namespace Bloge\Compilers;
 
+use Exception;
+
 use Bloge\Apps\IApp;
 use Bloge\NotDirectoryException;
+use Bloge\NotFoundException;
 use Bloge\NotWritableException;
 
 /**
@@ -45,11 +48,17 @@ class HTMLCompiler implements ICompiler
         $destination = chop($destination, '/');
         
         foreach ($app->browse() as $path) {
-            $name = $this->processPath(chop($path, '/'));
+            try {
+                $name = $this->processPath(chop($path, '/'));
+                
+                \Bloge\expandPath($name, $destination);
             
-            \Bloge\expandPath($name, $destination);
-            
-            file_put_contents("$destination/$name", $app->render($path));
+                file_put_contents("$destination/$name", $app->render($path));
+            }
+            catch (NotFoundException $e) {}
+            catch (Exception $e) {
+                throw $e;
+            }
         }
     }
     

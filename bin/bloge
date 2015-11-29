@@ -3,10 +3,12 @@
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-$file = realpath($_SERVER['argv'][1]);
-$destination = $_SERVER['argv'][2];
+use Bloge\CLI\BlogeApplication;
+use Bloge\CLI\CompileCommand;
 
-$app = require $file;
+$command = new CompileCommand;
 
-$builder = new Bloge\Compilers\HTMLCompiler($app);
-$builder->build($destination);
+$app = new BlogeApplication('Bloge', '0.0.0');
+$app->add($command);
+$app->setDefaultCommand($command->getName());
+$app->run();
