@@ -8,11 +8,11 @@
 
 **Bloge** `/blɒgi:/` – PHP static website generator.
 
-The difference between Bloge and other static website generators is its 
+The difference between Bloge and other static website generators is in its 
 flexible API which allows you swap content formats (and storages), 
-template engines, static compilers. You can use any folder structure you want.
+template engines, and static compilers. You can use any folder structure you want.
 
-The freedom of choice is yours.
+Complete freedom.
 
 > Such limitless, much flexible. wow.
 
@@ -29,7 +29,7 @@ The freedom of choice is yours.
 
 ## Example
 
-A dead-simple example with Bloge:
+A dead-simple example with Bloge without any special perks:
 
 ```php
 <?php
