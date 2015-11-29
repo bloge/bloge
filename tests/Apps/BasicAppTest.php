@@ -5,7 +5,7 @@ namespace Bloge\Apps;
 use Bloge\Content\PHP as Content;
 use Bloge\Renderers\PHP as Renderer;
 
-class AppTest extends \TestCase
+class BasicAppTest extends \TestCase
 {
     private function app()
     {

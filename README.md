@@ -60,6 +60,9 @@ php vendor/bin/bloge app.php build
 * Content route aliases, maps and ignores
 * Content processing
 * Data mapping
+* Complete freedom of choice: swappable content formats, template engines, 
+  compilation methods, website structure. Basically, your limitation is 
+  imagination
 
 ## Getting started
 

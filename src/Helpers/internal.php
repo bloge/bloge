@@ -25,7 +25,7 @@ function listFiles($directory, $basepath = '') {
         $basepath
     );
     
-    return array_filter($files, '\Bloge\isFileHidden');
+    return array_filter($files, '\Bloge\isFileVisible');
 }
 
 /**
@@ -41,10 +41,7 @@ function getFiles(\Iterator $iterator, $basepath = '')
     foreach ($iterator as $file) {
         if (!$file->isFile()) continue;
         
-        $file = substr($file, $length);
-        $dot = strrpos($file, '.');
-        
-        $files[] = $dot === false ? $file : substr($file, 0, $dot);
+        $files[] = removeExtension(substr($file, $length));
     }
     
     return $files;
@@ -54,7 +51,7 @@ function getFiles(\Iterator $iterator, $basepath = '')
  * @param string $file
  * @return bool
  */
-function isFileHidden($file) {
+function isFileVisible($file) {
     return strpos($file, '/.') === false; 
 }
 
@@ -63,7 +60,22 @@ function isFileHidden($file) {
  * @return bool
  */
 function hasExtension($file) {
-    return pathinfo($file, PATHINFO_EXTENSION) !== '';
+    $name = pathinfo($file, PATHINFO_FILENAME);
+    $ext = pathinfo($file, PATHINFO_EXTENSION);
+    
+    return $name !== '' && $ext !== '';
+}
+
+/**
+ * @param string $file
+ * @return string
+ */
+function removeExtension($file) {
+    $dot = strrpos($file, '.');
+    
+    return $dot === false || !hasExtension($file)
+        ? $file 
+        : substr($file, 0, $dot);
 }
 
 /**
@@ -118,7 +130,7 @@ function render($__view__, array $__data__) {
 /**
  * @param string $__view__
  * @param array $__data__
- * @return string
+ * @return array
  */
 function renderData($__view__, array $__data__) {
     ob_start();

@@ -105,7 +105,7 @@ class Advanced implements IAdvancedContent
         $data = $this->processor->process($route, $data);
         
         if (!$data) {
-            throw new NoFoundException($route);
+            throw new NotFoundException($route);
         }
         
         return $data;
