@@ -79,8 +79,8 @@ composer create-project bloge/starter-pack
 In current directory will be created Bloge starter pack website. You can 
 explore its source code and read manual provided by this starter pack.
 
-Also checkout advanced pack that comes with FrontMatter content and Twig 
-template engine `bloge/advanced-pack`:
+Also checkout the advanced pack that comes with FrontMatter content and Twig 
+templates `bloge/advanced-pack`:
 
 ```sh
 composer create-project bloge/advanced-pack
