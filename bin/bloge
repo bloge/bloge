@@ -1,14 +1,20 @@
 #!/usr/bin/env php
 <?php
 
+/**
+ * Bloge CLI application based on Symfony Console component
+ * 
+ * @package Bloge
+ */
+
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use Bloge\CLI\BlogeApplication;
 use Bloge\CLI\CompileCommand;
 
-$command = new CompileCommand;
+$composer = json_decode(file_get_contents(dirname(__DIR__) . '/composer.json'));
+$version  = isset($composer['version']) ? $composer['version'] : 'UNKNOWN';
 
-$app = new BlogeApplication('Bloge', '0.0.0');
-$app->add($command);
-$app->setDefaultCommand($command->getName());
+$app = new BlogeApplication('Bloge', $version);
+$app->add(new CompileCommand);
 $app->run();
