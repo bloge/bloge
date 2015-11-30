@@ -59,3 +59,7 @@ Packs and documentation might be found in wiki (not yet).
 ## License
 
 See LICENSE.txt.
+
+### Logo
+
+Logo was created by [Iryna Ivanova](http://owlblinked.tk)
