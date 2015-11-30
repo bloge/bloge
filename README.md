@@ -54,7 +54,7 @@ composer create-project bloge/advanced-pack
 
 ### Packs and documentation
 
-Packs and documentation might be found in wiki (not yet).
+Packs and documentation might be found in [wiki](https://github.com/bloge/bloge/wiki).
 
 ## License
 
