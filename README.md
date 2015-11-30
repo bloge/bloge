@@ -35,6 +35,13 @@ To start with Bloge you need:
 * Terminal (CLI PHP)
 * Composer
 
+You can install it from [packagist](https://packagist.org/packages/bloge/bloge) 
+via composer:
+
+```sh
+composer require bloge/bloge
+``` 
+
 Next thing you want to do is to start with `bloge/starter-pack`. You can 
 clone it via composer somewhere on webserver:
 
