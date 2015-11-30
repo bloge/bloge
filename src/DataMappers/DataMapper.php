@@ -26,9 +26,16 @@ class DataMapper implements IDataMapper
      * @param array $data
      * @return \Bloge\DataMapper $this
      */
-    public function map($path, array $data)
+    public function map($path, $data = '')
     {
-        $this->map[$path] = $data;
+        if (is_array($path)) {
+            foreach ($path as $key => $value) {
+                $this->map[$key] = $value;
+            }
+        }
+        else {
+            $this->map[$path] = $data;
+        }
         
         return $this;
     }
@@ -51,14 +58,14 @@ class DataMapper implements IDataMapper
     {
         $data = [];
         
-        if (isset($this->map[$path])) {
-            $data = $this->map[$path];
-        }
-        
         foreach ($this->globalMap as $map) {
             $data = array_merge($data, is_callable($map) 
                 ? $map($path) 
                 : $map);
+        }
+        
+        if (isset($this->map[$path])) {
+            $data = array_merge($data, $this->map[$path]);
         }
         
         return $data;

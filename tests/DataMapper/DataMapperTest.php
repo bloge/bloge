@@ -37,6 +37,19 @@ class DataMapperTest extends \TestCase
                 [
                     'title' => '404 - Not Found'
                 ]
+            ],
+            [
+                '404',
+                [
+                    [
+                        '404' => [
+                            'title' => '404 - Not Found'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => '404 - Not Found'
+                ]
             ]
         ];
     }
@@ -90,7 +103,10 @@ class DataMapperTest extends \TestCase
         $mapper = new DataMapper;
         
         foreach ($map as $key => $value) {
-            $mapper->map($key, $value);
+            // Don't judge me, I'm lazy
+            is_int($key) && $key < 100
+                ? $mapper->map($value)
+                : $mapper->map($key, $value);
         }
         
         $this->assertEquals($expected, $mapper->data($path));
