@@ -7,7 +7,7 @@ namespace Bloge\Processors;
  * 
  * Simple callback based processor
  * 
- * @package Bloge
+ * @package bloge
  */
 class Processor implements IProcessor
 {

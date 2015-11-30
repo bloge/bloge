@@ -8,7 +8,7 @@ namespace Bloge\DataMappers;
  * This interface is responsible for mapping data to routes according to set of 
  * rules
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IDataMapper
 {

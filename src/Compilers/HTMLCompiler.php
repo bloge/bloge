@@ -14,7 +14,7 @@ use Bloge\NotWritableException;
  * 
  * Compiles content provided by app into static HTML website
  * 
- * @package Bloge
+ * @package bloge
  */
 class HTMLCompiler implements ICompiler
 {

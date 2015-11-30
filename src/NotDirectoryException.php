@@ -8,7 +8,7 @@ namespace Bloge;
  * This subclass of Exception should be thrown in case if destination
  * directory isn't an actual directory
  * 
- * @package Bloge
+ * @package bloge
  * @see \Bloge\Compiler
  */
 class NotDirectoryException extends \Exception 

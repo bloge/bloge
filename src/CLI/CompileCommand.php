@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Compile commands
  * 
  * @link http://symfony.com/doc/current/components/console/introduction.html
- * @package Bloge
+ * @package bloge
  */
 class CompileCommand extends Command
 {

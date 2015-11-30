@@ -10,7 +10,7 @@ use Bloge\Apps\IPluggableApp;
  * Implementation of interface is responsible for registering different filters, 
  * maps, and map data.
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IPlugin
 {

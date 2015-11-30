@@ -9,7 +9,7 @@ namespace Bloge\Content;
  * should implement list all (or filtered by path) items and allow to get data 
  * contained in storage
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IContent
 {

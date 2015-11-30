@@ -4,7 +4,7 @@
 /**
  * Bloge CLI application based on Symfony Console component
  * 
- * @package Bloge
+ * @package bloge
  */
 
 $files = [

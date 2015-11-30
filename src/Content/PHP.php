@@ -7,7 +7,7 @@ use Bloge\NotFoundException;
 /**
  * Basic PHP content
  * 
- * @package Bloge
+ * @package bloge
  */
 class PHP extends FileSystem
 {

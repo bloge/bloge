@@ -7,7 +7,7 @@ use Bloge\NotFoundException;
 /**
  * FileSystem content abstraction
  * 
- * @package Bloge
+ * @package bloge
  */
 abstract class FileSystem implements IContent
 {

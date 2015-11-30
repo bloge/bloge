@@ -8,7 +8,7 @@ namespace Bloge\Renderers;
  * Implementation of this interface is responsible for rendering 
  * content data passed into the render method
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IRenderer
 {

@@ -11,7 +11,7 @@ use Bloge\Renderers\IRenderer;
  * An application without any tweaks. No configuration, easy, simple, fast, and 
  * works straight out of box
  * 
- * @package Bloge
+ * @package bloge
  */
 class BasicApp implements IApp
 {

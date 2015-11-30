@@ -8,7 +8,7 @@ namespace Bloge\Apps;
  * Implementation of this interface is a facade for listing and rendering
  * content
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IApp 
 {

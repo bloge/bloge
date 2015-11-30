@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
  * BlogeApplication
  * 
  * @link http://symfony.com/doc/current/components/console/single_command_tool.html
- * @package Bloge
+ * @package bloge
  */
 class BlogeApplication extends Application
 {

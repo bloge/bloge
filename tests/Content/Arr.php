@@ -7,7 +7,7 @@ use Bloge\NotFoundException;
 /**
  * Array content mock
  * 
- * @package Bloge
+ * @package bloge
  */
 class Arr implements IContent
 {

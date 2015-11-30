@@ -10,7 +10,7 @@ namespace Bloge;
  * arguments or names might be changed at any time
  * 
  * @internal
- * @package Bloge
+ * @package bloge
  */
 
 /**

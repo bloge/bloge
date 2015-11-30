@@ -8,7 +8,7 @@ namespace Bloge\Dispatchers;
  * This interface is responsible for remapping routes according to set filters.
  * Filtering should be implemented in subclass
  * 
- * @package Bloge
+ * @package bloge
  * @see \Bloge\Basic\Dispatcher
  */
 interface IDispatcher

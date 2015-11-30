@@ -9,7 +9,7 @@ use Bloge\IPlugin;
  * 
  * Application that can be plugged with \Bloge\IPlugin
  * 
- * @package Bloge
+ * @package bloge
  */
 interface IPluggableApp extends IApp
 {

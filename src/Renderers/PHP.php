@@ -9,7 +9,7 @@ use Bloge\NotFoundException;
  * 
  * This renderer renders raw PHP templates
  * 
- * @package Bloge
+ * @package bloge
  */
 class PHP implements IRenderer
 {

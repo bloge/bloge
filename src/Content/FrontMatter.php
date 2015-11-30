@@ -7,7 +7,7 @@ use Bloge\NotFoundException;
 /**
  * Front matter content
  * 
- * @package Bloge
+ * @package bloge
  */
 class FrontMatter extends FileSystem
 {
