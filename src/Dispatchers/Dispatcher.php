@@ -116,9 +116,11 @@ class Dispatcher implements IDispatcher
         }
         
         foreach ($this->maps as $from => $to) {
-            unset($map[$from]);
+            if (isset($map[$from]) || isset($map[$to])) {
+                unset($map[$from]);
             
-            $map[$to] = $from;
+                $map[$to] = $from;
+            }
         }
         
         return $map;

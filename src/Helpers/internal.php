@@ -41,7 +41,11 @@ function getFiles(\Iterator $iterator, $basepath = '')
     foreach ($iterator as $file) {
         if (!$file->isFile()) continue;
         
-        $files[] = removeExtension(substr($file, $length));
+        $file = removeExtension(substr($file, $length));
+        
+        if (strpos($file, '.') !== 0) {
+            $files[] = $file;
+        }
     }
     
     return $files;

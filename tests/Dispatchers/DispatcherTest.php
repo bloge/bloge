@@ -103,6 +103,20 @@ class DispatcherTest extends \TestCase
                     '404.html' => '404',
                     'projects' => 'projects'
                 ]
+            ],
+            [
+                ['index', '404', 'projects'],
+                [
+                    [
+                        'index' => 'welcome',
+                        'foo' => 'bar'
+                    ]
+                ],
+                [
+                    'welcome' => 'index',
+                    '404' => '404',
+                    'projects' => 'projects'
+                ]
             ]
         ];
     }
