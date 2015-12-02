@@ -36,11 +36,15 @@ class FrontMatter extends FileSystem
      */
     private function parse($file)
     {
-        $content = file_get_contents($file);
+        $content = ltrim(file_get_contents($file), "\n-");
+        $header  = '';
         
         $separator = strpos($content, self::SEPARATOR);
-        $header  = mb_substr($content, 0, $separator);
-        $content = mb_substr($content, $separator + strlen(self::SEPARATOR));
+        
+        if ($separator !== false) {
+            $header  = mb_substr($content, 0, $separator);
+            $content = mb_substr($content, $separator + strlen(self::SEPARATOR));
+        }
         
         return compact('header', 'content');
     }

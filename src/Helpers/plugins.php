@@ -28,10 +28,19 @@ function processMerge($field, callable $callback) {
 
 /**
  * @param string $regex
+ * @param mixed $value
+ * @param mixed $default
  * @return callable
  */
-function rFilter($regex) {
-    return function ($value) use ($regex) {
-        return preg_match($regex, $value);
-    };
+function rFilter($regex, $value = null, $default = false) {
+    if ($value === null) {
+        return function ($value) use ($regex) {
+            return preg_match($regex, $value);
+        };
+    }
+    else {
+        return function ($v) use ($regex, $value, $default) {
+            return preg_match($regex, $value) ? $value : $default;
+        };
+    }
 }

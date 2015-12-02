@@ -38,7 +38,8 @@ class PHP implements IRenderer
      */
     public function partial($view, array $data = [])
     {
-        $path = "{$this->path}/$view";
+        $view = \Bloge\removeExtension($view);
+        $path = "{$this->path}/$view.php";
         
         if (!file_exists($path)) {
             throw new NotFoundException($view);

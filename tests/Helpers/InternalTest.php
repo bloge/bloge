@@ -68,7 +68,7 @@ class InternalTest extends TestCase
     {
         return [
             [__DIR__, ['InternalTest']],
-            [MAIN_DIR . '/front', ['index']]
+            [MAIN_DIR . '/front', ['hello', 'index', 'no-header']]
         ];
     }
     

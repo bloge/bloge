@@ -13,6 +13,13 @@ namespace Bloge\Renderers;
 interface IRenderer
 {
     /**
+     * @param string $view
+     * @param array $data
+     * @return string
+     */
+    public function partial($view, array $data = []);
+    
+    /**
      * @param array $data
      * @return string
      */

@@ -13,6 +13,20 @@ class FrontMatterTest extends \TestCase
                     'header' => "title: Hello\n",
                     'content' => "\n# Header\n\nWelcome to reality!"
                 ]
+            ],
+            [
+                'hello',
+                [
+                    'header' => "title: Hello, there\n",
+                    'content' => "\nI can include another set of `---`'s above the meta data. Just look on top.\nFirst time it should fail lol."
+                ]
+            ],
+            [
+                'no-header',
+                [
+                    'header' => '',
+                    'content' => 'Look, ma. No header!'
+                ]
             ]
         ];
     }
