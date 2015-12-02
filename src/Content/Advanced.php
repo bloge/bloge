@@ -7,7 +7,7 @@ use Bloge\Dispatchers\Dispatcher;
 use Bloge\NotFoundException;
 use Bloge\Processors\Processor;
 
-class Advanced implements IAdvancedContent
+class Advanced implements IAdvanced
 {
     /**
      * @var \Bloge\Content\IContent

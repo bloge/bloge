@@ -11,7 +11,7 @@ namespace Bloge\Content;
  * 
  * @package bloge
  */
-interface IAdvancedContent extends IContent
+interface IAdvanced extends IContent
 {
     /**
      * @return \Bloge\DataMappers\DataMapper
