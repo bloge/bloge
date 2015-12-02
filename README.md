@@ -1,12 +1,9 @@
 # Bloge
 
-![bloge](doge.png)
+<img src="doge.png" align="right" width="200">
 
-> Wow. So bloge. Much php.
 
-## About
-
-**Bloge** `/blɒgi:/` – PHP static website generator.
+**Bloge** `/blɒgi:/` – flexible PHP static website generator.
 
 The difference between Bloge and other static website generators is in its 
 flexible API which allows you swap content formats (and storages), 
@@ -44,7 +41,7 @@ composer require bloge/bloge
 
 And then read the doce's (which aren't ready yet).
 
-### Basic packs
+## Basic packs
 
 You also may want to try some basic packs.
 
@@ -65,15 +62,13 @@ templates `bloge/advanced-pack`:
 composer create-project bloge/advanced-pack
 ```
 
-## Packs and documentation
+## Documentation and packs
 
-Packs and documentation might be found in [wiki](https://github.com/bloge/bloge/wiki).
+Documentation and list of packs might be found in [wiki](https://github.com/bloge/bloge/wiki).
 
-## License
+## Logo and License
 
 See LICENSE.txt.
-
-### Logo
 
 Logo was created by [Iryna Ivanova](http://owlblinked.tk). Thanks to her for 
 such an AWESOME :fire: bloge logo. 
