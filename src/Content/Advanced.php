@@ -96,12 +96,10 @@ class Advanced implements IAdvanced
      */
     public function fetch($route, array $data = [])
     {
-        $data = $this->dataMapper->data($route);
+        $data  = $this->dataMapper->data($route);
+        $route = $this->dispatcher->dispatch($route);
         
-        $content = $this->content;
-        $route   = $this->dispatcher->dispatch($route);
-        
-        $data = array_merge($data, $content->fetch($route, $data));
+        $data = array_merge($data, $this->content->fetch($route, $data));
         $data = $this->processor->process($route, $data);
         
         if (!$data) {

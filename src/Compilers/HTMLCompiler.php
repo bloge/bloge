@@ -50,10 +50,11 @@ class HTMLCompiler implements ICompiler
         foreach ($app->browse() as $path) {
             try {
                 $name = $this->processPath(chop($path, '/'));
+                $content = $app->render($path);
                 
                 \Bloge\expandPath($name, $destination);
             
-                file_put_contents("$destination/$name", $app->render($path));
+                file_put_contents("$destination/$name", $content);
             }
             catch (NotFoundException $e) {}
             catch (Exception $e) {
