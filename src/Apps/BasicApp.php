@@ -50,8 +50,14 @@ class BasicApp implements IApp
      */
     public function render($route, array $data = [])
     {
-        return $this->renderer->render(
-            $this->content->fetch($route, $data)
-        );
+        return $this->renderer->render($this->fetch($route, $data));
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function fetch($route, array $data = [])
+    {
+        return $this->content->fetch($route, $data);
     }
 }

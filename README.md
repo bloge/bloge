@@ -2,7 +2,6 @@
 
 <img src="doge.png" align="right" width="200">
 
-
 **Bloge** `/blɒgi:/` – flexible PHP static website generator.
 
 The difference between Bloge and other static website generators is in its 

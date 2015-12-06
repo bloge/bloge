@@ -23,5 +23,12 @@ interface IApp
      * @param array $data
      * @return string
      */
+    public function fetch($route, array $data = []);
+    
+    /**
+     * @param string $route
+     * @param array $data
+     * @return string
+     */
     public function render($route, array $data = []);
 }
