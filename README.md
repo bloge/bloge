@@ -2,13 +2,14 @@
 
 <img src="doge.png" align="right" width="200">
 
-**Bloge** `/blɒgi:/` – flexible PHP static website generator.
+**Bloge** `/blɒgi:/` is a static website framework for PHP.
 
-The difference between Bloge and other static website generators is in its 
-flexible API which allows you swap content formats (and storages), 
-template engines, and static compilers. You can use any folder structure you want.
+Bloge focuses on simple and flexible API for building static websites. 
+It's ideal for content-driven (but static) websites like personal blogs, visit 
+cards, galleries, landing pages, and/or documentations. 
 
-Complete freedom, basically.
+Bloge gives you complete freedom over your content format, storage, rendering, 
+and much more.
 
 > Such limitless, much flexible. wow.
 
