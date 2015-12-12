@@ -2,6 +2,8 @@
 
 namespace Bloge\CLI;
 
+use Bloge\NotFoundException;
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -69,8 +71,31 @@ class CompileCommand extends Command
             return require $app;
         };
         
-        $compiler = new $compiler($callback());
-        $compiler->build($destination);
+        $application = $callback();
+        $compiler = new $compiler($application);
+        $compiler->isBuildable($destination);
+        
+        foreach ($application->browse() as $path) {
+            try {
+                $compiler->build($path, $destination);
+                
+                if ($output->isVerbose()) {
+                    $output->writeln(
+                        "<info>Content file '$path' was successfully compiled!</info>"
+                    );
+                }
+            }
+            catch (NotFoundException $e) {
+                if ($output->isVerbose()) {
+                    $output->writeln(
+                        "<error>Content file by path '$path' wasn't found.</error>"
+                    );
+                }
+            }
+            catch (Exception $e) {
+                throw $e;
+            }
+        }
         
         $output->writeln(
             "<info>Application '$app' was successfully compiled into '$destination'!</info>"
