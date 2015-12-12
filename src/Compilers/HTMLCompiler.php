@@ -34,7 +34,7 @@ class HTMLCompiler implements ICompiler
     /**
      * @{inheritDoc}
      */
-    public function build($destination)
+    public function isBuildable($destination)
     {
         if (!is_dir($destination)) {
             throw new NotDirectoryException($destination);
@@ -44,23 +44,22 @@ class HTMLCompiler implements ICompiler
             throw new NotWritableException($destination);
         }
         
-        $app = $this->app;
+        return true;
+    }
+    
+    /**
+     * @{inheritDoc}
+     */
+    public function build($path, $destination)
+    {
         $destination = chop($destination, '/');
         
-        foreach ($app->browse() as $path) {
-            try {
-                $name = $this->processPath(chop($path, '/'));
-                $content = $app->render($path);
-                
-                \Bloge\expandPath($name, $destination);
+        $name    = $this->processPath($path);
+        $content = $this->app->render($path);
             
-                file_put_contents("$destination/$name", $content);
-            }
-            catch (NotFoundException $e) {}
-            catch (Exception $e) {
-                throw $e;
-            }
-        }
+        \Bloge\expandPath($name, $destination);
+        
+        file_put_contents("$destination/$name", $content);
     }
     
     /**
@@ -77,6 +76,6 @@ class HTMLCompiler implements ICompiler
             $path .= '/index.html';
         }
         
-        return $path;
+        return chop($path, '/');
     }
 }

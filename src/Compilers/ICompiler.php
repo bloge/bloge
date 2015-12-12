@@ -15,16 +15,23 @@ use Bloge\Apps\IApp;
 interface ICompiler
 {
     /**
-     * @param \Bloge\IApp
+     * @param \Bloge\IApp $app
      */
     public function __construct(IApp $app);
     
     /**
-     * Builds content into $destination folder
-     * 
      * @param string $destination
      * @throws \Bloge\NotDirectoryException If $destination isn't a directory
      * @throws \Bloge\NotWritableException If $destination isn't writable
+     * @return bool
      */
-    public function build($destination);
+    public function isBuildable($destination);
+    
+    /**
+     * Builds content file into $destination folder
+     * 
+     * @param string $path
+     * @param string $destination
+     */
+    public function build($path, $destination);
 }

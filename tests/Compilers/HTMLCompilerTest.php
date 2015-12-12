@@ -8,19 +8,25 @@ use Bloge\Renderers\PHP as Renderer;
 
 class HTMLCompilerTest extends \TestCase
 {
+    private function app()
+    {
+        return new BasicApp(
+            new Content(CONTENT_DIR),
+            new Renderer(THEME_DIR)
+        );
+    }
+    
     private function compiler()
     {
-        return new HTMLCompiler(
-            new BasicApp(
-                new Content(CONTENT_DIR),
-                new Renderer(THEME_DIR)
-            )
-        );
+        return new HTMLCompiler($this->app());
     }
     
     public function testBuild()
     {
-        $this->compiler()->build(BUILD_DIR);
+        foreach ($this->app()->browse() as $path) {
+            $this->compiler()->build($path, BUILD_DIR);
+        }
+        
         $this->assertTrue(
             count(scandir(BUILD_DIR)) > 2, 
             'Compiler could not build website!'
@@ -32,7 +38,7 @@ class HTMLCompilerTest extends \TestCase
      */
     public function testNonWritableBuild()
     {
-        $this->compiler()->build(MAIN_DIR . '/non_writable');
+        $this->compiler()->isBuildable(MAIN_DIR . '/non_writable');
     }
     
     /**
@@ -40,6 +46,6 @@ class HTMLCompilerTest extends \TestCase
      */
     public function testNonDirectoryBuild()
     {
-        $this->compiler()->build(MAIN_DIR . '/content.php');
+        $this->compiler()->isBuildable(MAIN_DIR . '/content.php');
     }
 }
