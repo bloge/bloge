@@ -24,23 +24,6 @@ and much more.
   compilation methods, website structure. Basically, your limitation is 
   imagination
 
-## Getting started
-
-To start with Bloge you need:
-
-* PHP 5.4 or higher
-* Terminal (CLI PHP)
-* Composer
-
-You can install it from [packagist](https://packagist.org/packages/bloge/bloge) 
-via composer:
-
-```sh
-composer require bloge/bloge
-``` 
-
-And then read the doce's (which aren't ready yet).
-
 ## Basic packs
 
 You also may want to try some basic packs.
