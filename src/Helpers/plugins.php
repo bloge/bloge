@@ -44,3 +44,22 @@ function rFilter($regex, $value = null, $default = false) {
         };
     }
 }
+
+/**
+ * @param string $content
+ * @param string $separator
+ * @return array
+ */
+function frontMatter($content, $separator) {
+    $content = ltrim($content, $separator);
+    $header  = '';
+    
+    $position = strpos($content, $separator);
+    
+    if ($position !== false) {
+        $header  = mb_substr($content, 0, $position);
+        $content = mb_substr($content, $position + strlen($separator));
+    }
+    
+    return compact('header', 'content');
+}

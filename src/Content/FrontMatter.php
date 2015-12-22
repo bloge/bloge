@@ -27,25 +27,6 @@ class FrontMatter extends FileSystem
             throw new NotFoundException($path);
         }
         
-        return $this->parse($file);
-    }
-    
-    /**
-     * @param string $file
-     * @return array
-     */
-    private function parse($file)
-    {
-        $content = ltrim(file_get_contents($file), "\n-");
-        $header  = '';
-        
-        $separator = strpos($content, self::SEPARATOR);
-        
-        if ($separator !== false) {
-            $header  = mb_substr($content, 0, $separator);
-            $content = mb_substr($content, $separator + strlen(self::SEPARATOR));
-        }
-        
-        return compact('header', 'content');
+        return \Bloge\frontMatter(file_get_contents($file), static::SEPARATOR);
     }
 }
