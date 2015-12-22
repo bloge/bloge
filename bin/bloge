@@ -8,8 +8,8 @@
  */
 
 $files = [
-    dirname(dirname(dirname(__DIR__))) . '/autoload.php',
-    dirname(__DIR__) . '/vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
     __DIR__ . '/vendor/autoload.php',
 ];
 
@@ -18,12 +18,10 @@ foreach ($files as $file) {
         continue;
     }
     
-    require $file;
-    
-    $files = null;
+    $composer = require $file;
 }
 
-if ($files) {
+if (empty($composer)) {
     die('Composer\'s autoloader couldn\'t be found');
 }
 
