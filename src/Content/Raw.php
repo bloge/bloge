@@ -4,6 +4,14 @@ namespace Bloge\Content;
 
 use Bloge\NotFoundException;
 
+/**
+ * Raw content provider
+ * 
+ * Fetches raw content of content file.
+ * 
+ * @package bloge
+ */
+
 class Raw extends FileSystem
 {
     /**

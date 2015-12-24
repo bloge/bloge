@@ -5,10 +5,15 @@ namespace Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
- * Front matter content
+ * Front matter content provider
+ * 
+ * This class break down raw content into two sections for configuration 
+ * (`header` key) and content (`content` key). This format used in many popular 
+ * static website generators and generators.
  * 
  * @package bloge
  */
+
 class FrontMatter extends FileSystem
 {
     /**

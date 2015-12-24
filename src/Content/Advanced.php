@@ -10,6 +10,14 @@ use Bloge\NotFoundException;
 use Bloge\Processors\IProcessor;
 use Bloge\Processors\Processor;
 
+/**
+ * Advanced content provider
+ * 
+ * 
+ * 
+ * @package bloge
+ */
+
 class Advanced implements IAdvanced
 {
     /**

@@ -12,10 +12,11 @@ use Bloge\NotWritableException;
 /**
  * HTML compiler
  * 
- * Compiles content provided by app into static HTML website
+ * Compiles content provided by app into static HTML website.
  * 
  * @package bloge
  */
+
 class HTMLCompiler implements ICompiler
 {
     /**

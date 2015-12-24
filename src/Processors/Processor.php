@@ -5,10 +5,11 @@ namespace Bloge\Processors;
 /**
  * Processor implementation
  * 
- * Simple callback based processor
+ * Simple callback based processor.
  * 
  * @package bloge
  */
+
 class Processor implements IProcessor
 {
     /**

@@ -9,10 +9,11 @@ use Bloge\Renderers\IRenderer;
  * Basic application
  * 
  * An application without any tweaks. No configuration, easy, simple, fast, and 
- * works straight out of box
+ * works straight out of box.
  * 
  * @package bloge
  */
+
 class BasicApp implements IApp
 {
     /**

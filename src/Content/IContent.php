@@ -3,14 +3,15 @@
 namespace Bloge\Content;
 
 /**
- * Content interface
+ * Content provider interface
  * 
  * This interface is inspired by Repository interface. Implementation classes
  * should implement list all (or filtered by path) items and allow to get data 
- * contained in storage
+ * contained in storage.
  * 
  * @package bloge
  */
+
 interface IContent
 {
     /**

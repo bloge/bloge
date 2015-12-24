@@ -3,7 +3,7 @@
 namespace Bloge\Content;
 
 /**
- * Advanced content interface
+ * Advanced content provider interface
  * 
  * This implementations of this interface should implement content's interface
  * and extend the behaviour of content's `browse` and `fetch` methods with 
@@ -14,6 +14,7 @@ namespace Bloge\Content;
  * 
  * @package bloge
  */
+
 interface IAdvanced extends IContent
 {
     /**

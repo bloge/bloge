@@ -11,11 +11,14 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Compile commands
+ * Compile command
+ * 
+ * Compiles application to destination directory.
  * 
  * @link http://symfony.com/doc/current/components/console/introduction.html
  * @package bloge
  */
+
 class CompileCommand extends Command
 {
     protected function configure()

@@ -6,11 +6,14 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
- * BlogeApplication
+ * Bloge CLI application
+ * 
+ * One command application, yet.
  * 
  * @link http://symfony.com/doc/current/components/console/single_command_tool.html
  * @package bloge
  */
+
 class BlogeApplication extends Application
 {
     /**

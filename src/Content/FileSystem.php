@@ -5,7 +5,7 @@ namespace Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
- * FileSystem content abstraction
+ * File system content provider abstraction
  * 
  * @package bloge
  */
@@ -28,7 +28,8 @@ abstract class FileSystem implements IContent
      * @param string $path
      * @return string
      */
-    protected function path($path = '') {
+    protected function path($path = '') 
+    {
         return "{$this->path}/$path";
     }
     

@@ -5,10 +5,11 @@ namespace Bloge\Dispatchers;
 /**
  * Dispatcher implementation
  * 
- * CRUD for routes remapping
+ * CRUD for routes remapping.
  * 
  * @package bloge
  */
+
 class Dispatcher implements IDispatcher
 {
     /**

@@ -6,6 +6,14 @@ use Bloge\Content\IAdvanced;
 use Bloge\IPlugin;
 use Bloge\Renderers\IRenderer;
 
+/**
+ * Advanced application
+ * 
+ * This basic app extension adds features which allows you to tweak content.
+ * 
+ * @package bloge
+ */
+
 class AdvancedApp extends BasicApp implements IPluggableApp
 {
     /**

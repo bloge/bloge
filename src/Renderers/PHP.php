@@ -7,10 +7,18 @@ use Bloge\NotFoundException;
 /**
  * Basic renderer
  * 
- * This renderer renders raw PHP templates
+ * This renderer renders native PHP templates. Following renderer works this way: 
+ * 
+ * 1. You pass associative array to `render` or `partial`
+ * 2. Renderer extracts given array to current scope
+ * 3. PHP requires a file (layout) specified as first parameter in `partial` 
+ *    method or in `layout` key of given data (default value is `layout.php`)
+ * 4. PHP executes template (from previous point) with extracted variables, 
+ *    buffers resulted output and returns this buffered output
  * 
  * @package bloge
  */
+
 class PHP implements IRenderer
 {
     /**

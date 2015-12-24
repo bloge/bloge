@@ -5,10 +5,11 @@ namespace Bloge\DataMappers;
 /**
  * DataMapper implementation
  * 
- * Allows to map data to specific route, all routes or based on callable
+ * Allows to map data to specific route, all routes or based on callable.
  * 
  * @package bloge
  */
+
 class DataMapper implements IDataMapper
 {
     /**

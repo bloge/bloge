@@ -8,10 +8,11 @@ use Bloge\Apps\IApp;
  * Compiler interface
  * 
  * Implementations of this interface are responsible for building dynamic
- * website/content into file flat HTML website
+ * website/content into file flat HTML website.
  * 
  * @package bloge
  */
+
 interface ICompiler
 {
     /**

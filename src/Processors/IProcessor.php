@@ -5,10 +5,11 @@ namespace Bloge\Processors;
 /**
  * Processor interface
  * 
- * Implementation of interface is responsible for content data post processing
+ * Implementation of interface is responsible for content data post processing.
  * 
  * @package bloge
  */
+
 interface IProcessor
 {
     /**

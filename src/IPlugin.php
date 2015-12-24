@@ -12,6 +12,7 @@ use Bloge\Apps\IPluggableApp;
  * 
  * @package bloge
  */
+
 interface IPlugin
 {
     /**

@@ -5,11 +5,12 @@ namespace Bloge\Renderers;
 /**
  * Renderer interface
  * 
- * Implementation of this interface is responsible for rendering 
- * content data passed into the render method
+ * Implementation of this interface is responsible for rendering content data 
+ * passed into the render method.
  * 
  * @package bloge
  */
+
 interface IRenderer
 {
     /**

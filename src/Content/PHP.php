@@ -5,10 +5,14 @@ namespace Bloge\Content;
 use Bloge\NotFoundException;
 
 /**
- * Basic PHP content
+ * Basic PHP content provider
+ * 
+ * This content provider uses native PHP capabilities to extract data and 
+ * output content.
  * 
  * @package bloge
  */
+
 class PHP extends FileSystem
 {
     /**
