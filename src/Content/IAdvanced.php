@@ -3,28 +3,31 @@
 namespace Bloge\Content;
 
 /**
- * Content interface
+ * Advanced content interface
  * 
- * This interface is inspired by Repository interface. Implementation classes
- * should implement list all (or filtered by path) items and allow to get data 
- * contained in storage
+ * This implementations of this interface should implement content's interface
+ * and extend the behaviour of content's `browse` and `fetch` methods with 
+ * dispatcher, data mapper and processor.
+ * 
+ * Dispatcher, data mapper and processor could be provided to user by invoking 
+ * getters defined below.
  * 
  * @package bloge
  */
 interface IAdvanced extends IContent
 {
     /**
-     * @return \Bloge\DataMappers\DataMapper
+     * @return \Bloge\DataMappers\IDataMapper
      */
     public function dataMapper();
     
     /**
-     * @return \Bloge\Dispatchers\Dispatcher
+     * @return \Bloge\Dispatchers\IDispatcher
      */
     public function dispatcher();
     
     /**
-     * @return \Bloge\Processors\Processor
+     * @return \Bloge\Processors\IProcessor
      */
     public function processor();
 }

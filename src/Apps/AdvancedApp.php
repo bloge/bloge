@@ -2,18 +2,18 @@
 
 namespace Bloge\Apps;
 
-use Bloge\Content\Advanced;
+use Bloge\Content\IAdvanced;
 use Bloge\IPlugin;
 use Bloge\Renderers\IRenderer;
 
 class AdvancedApp extends BasicApp implements IPluggableApp
 {
     /**
-     * @param \Bloge\Content\Advanced $content
+     * @param \Bloge\Content\IAdvanced $content
      * @param \Bloge\Renderers\IRenderer $renderer
      */
     public function __construct(
-        Advanced $content, 
+        IAdvanced $content, 
         IRenderer $renderer
     ) {
         $this->content  = $content;

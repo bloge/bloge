@@ -2,9 +2,12 @@
 
 namespace Bloge\Content;
 
+use Bloge\DataMappers\IDataMapper;
 use Bloge\DataMappers\DataMapper;
 use Bloge\Dispatchers\Dispatcher;
+use Bloge\Dispatchers\IDispatcher;
 use Bloge\NotFoundException;
+use Bloge\Processors\IProcessor;
 use Bloge\Processors\Processor;
 
 class Advanced implements IAdvanced
@@ -15,31 +18,31 @@ class Advanced implements IAdvanced
     protected $content;
     
     /**
-     * @var \Bloge\DataMappers\DataMapper
+     * @var \Bloge\DataMappers\IDataMapper
      */
     protected $dataMapper;
     
     /**
-     * @var \Bloge\Dispatchers\Dispatcher
+     * @var \Bloge\Dispatchers\IDispatcher
      */
     protected $dispatcher;
     
     /**
-     * @var \Bloge\Processors\Processor
+     * @var \Bloge\Processors\IProcessor
      */
     protected $processor;
     
     /**
      * @param \Bloge\Content\IContent $content
-     * @param \Bloge\DataMappers\DataMapper $dataMapper
-     * @param \Bloge\Dispatchers\Dispatcher $dispatcher
-     * @param \Bloge\Processors\Processor $processor
+     * @param \Bloge\DataMappers\IDataMapper $dataMapper
+     * @param \Bloge\Dispatchers\IDispatcher $dispatcher
+     * @param \Bloge\Processors\IProcessor $processor
      */
     public function __construct(
         IContent $content, 
-        DataMapper $dataMapper = null,
-        Dispatcher $dispatcher = null,
-        Processor $processor = null
+        IDataMapper $dataMapper = null,
+        IDispatcher $dispatcher = null,
+        IProcessor $processor = null
     ) {
         $this->content    = $content;
         $this->dataMapper = $dataMapper ?: new DataMapper;
