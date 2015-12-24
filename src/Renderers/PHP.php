@@ -38,6 +38,7 @@ class PHP implements IRenderer
      */
     public function partial($view, array $data = [])
     {
+        $data['theme'] = $this;
         $view = \Bloge\removeExtension($view);
         $path = "{$this->path}/$view.php";
         
@@ -53,12 +54,10 @@ class PHP implements IRenderer
      */
     public function render(array $data = [])
     {
+        $this->data = $data;
         $layout = isset($data['layout']) 
             ? $data['layout'] 
-            : 'layout.php';
-        
-        $data['theme'] = $this;
-        $this->data = $data;
+            : 'layout';
         
         return $this->partial($layout, $data);
     }
