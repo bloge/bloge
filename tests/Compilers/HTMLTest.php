@@ -6,7 +6,7 @@ use Bloge\Apps\BasicApp;
 use Bloge\Content\PHP as Content;
 use Bloge\Renderers\PHP as Renderer;
 
-class HTMLCompilerTest extends \TestCase
+class HTMLTest extends \TestCase
 {
     private function app()
     {
@@ -18,7 +18,7 @@ class HTMLCompilerTest extends \TestCase
     
     private function compiler()
     {
-        return new HTMLCompiler($this->app());
+        return new HTML($this->app());
     }
     
     public function testBuild()

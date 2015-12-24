@@ -40,7 +40,7 @@ class CompileCommand extends Command
                 'c',
                 InputOption::VALUE_REQUIRED,
                 'Which compiler you want to use (specify class name)?',
-                '\Bloge\Compilers\HTMLCompiler'
+                '\Bloge\Compilers\HTML'
             );
     }
     

@@ -17,7 +17,7 @@ use Bloge\NotWritableException;
  * @package bloge
  */
 
-class HTMLCompiler implements ICompiler
+class HTML implements ICompiler
 {
     /**
      * @var \Bloge\IApp $app
